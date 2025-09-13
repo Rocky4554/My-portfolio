@@ -463,7 +463,6 @@
 
 // // export default Hero;
 
-
 // import React from 'react';
 // import { motion } from 'framer-motion';
 // import { ChevronDown, Mail } from 'lucide-react';
@@ -492,7 +491,7 @@
 //       ) : (
 //         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" />
 //       )}
-      
+
 //       {/* DotGrid Background (only in dark mode) */}
 //       {isDark && (
 //         <div className="absolute inset-0 z-0">
@@ -552,7 +551,7 @@
 //           >
 //             Hello, I'm
 //           </motion.p>
-          
+
 //           <motion.h1
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
@@ -561,7 +560,7 @@
 //           >
 //             John Doe
 //           </motion.h1>
-          
+
 //           <motion.p
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
@@ -570,17 +569,17 @@
 //           >
 //             Full Stack Developer
 //           </motion.p>
-          
+
 //           <motion.p
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
 //             transition={{ delay: 0.8, duration: 0.8 }}
 //             className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
 //           >
-//             I create exceptional digital experiences that combine beautiful design 
+//             I create exceptional digital experiences that combine beautiful design
 //             with powerful functionality
 //           </motion.p>
-          
+
 //           <motion.div
 //             initial={{ opacity: 0, y: 50 }}
 //             animate={{ opacity: 1, y: 0 }}
@@ -596,7 +595,7 @@
 //               <span>View My Work</span>
 //               <ChevronDown className="h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
 //             </motion.button>
-            
+
 //             <motion.button
 //               whileHover={{ scale: 1.05, y: -2 }}
 //               whileTap={{ scale: 0.95 }}
@@ -609,7 +608,7 @@
 //           </motion.div>
 //         </motion.div>
 //       </div>
-      
+
 //       {/* Scroll indicator */}
 //       <motion.div
 //         animate={{ y: [0, 10, 0] }}
@@ -625,34 +624,38 @@
 // export default Hero;
 /////
 
-
-
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Mail } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ChevronDown, Mail } from "lucide-react";
 import { useTheme } from "../hooks/useTheme"; // Adjust path based on your project structure
-import DotGrid from '../components/DotGrid'; // Adjust path if necessary
+import DotGrid from "../components/DotGrid"; // Adjust path if necessary
+import { FileText } from "lucide-react";
+
+
+import SplitText from "../components/SplitText";
 
 const Hero = () => {
   const { isDark } = useTheme();
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
+      behavior: "smooth",
+      block: "start",
     });
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       {/* Background - Light mode gradient, Dark mode black */}
       {isDark ? (
         <div className="absolute inset-0 bg-black" />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" />
       )}
-      
+
       {/* DotGrid Background (only in dark mode) */}
       {isDark && (
         <div className="absolute inset-0 z-0">
@@ -704,72 +707,108 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-4"
-          >
-            Hello, I'm
-          </motion.p>
-          
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+            className="text-6xl md:text-6xl lg:text-10xl font-bold text-gray-900 dark:text-white mb-6 m-4"
           >
-            John Doe
+            Building bridges between <br></br>design and code.
           </motion.h1>
-          
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="font-mono text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-4"
+          >
+            Hello, I'm
+          </motion.p>
+
+          <SplitText
+            text="RAUNAK KUMAR"
+            className="text-5xl font-semibold text-center"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
+
           <motion.p
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-xl md:text-3xl text-gray-700 dark:text-gray-300 font-light mb-8"
+            className="font-serif font-bold text-xl md:text-4xl text-gray-700 dark:text-blue-400 font-light mb-8 py-1"
           >
-            Full Stack Developer
+            Frontend Developer
           </motion.p>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
             className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
           >
-            I create exceptional digital experiences that combine beautiful design 
-            with powerful functionality
+            I create exceptional digital experiences that combine beautiful
+            design with powerful functionality
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
+            {/* View My Work Button */}
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection("projects")}
               className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2"
             >
               <span>View My Work</span>
               <ChevronDown className="h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
             </motion.button>
-            
+
+            {/* Contact Me Button */}
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2"
             >
               <Mail className="h-5 w-5" />
               <span>Contact Me</span>
             </motion.button>
+
+            
+            {/* Download Resume Button (styled like Contact Me) */}
+             {/* Download Resume Button (matches Contact Me) */}
+<motion.a
+  whileHover={{ scale: 1.05, y: -2 }}
+  whileTap={{ scale: 0.95 }}
+  href="/Raunak_Kumar_Resume.pdf" // put resume in /public folder
+  target="_blank"
+  rel="noopener noreferrer"
+  download
+  className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-950 text-gray-700 dark:text-gray-300 
+             hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 
+             rounded-xl font-medium transition-all duration-300 flex items-center space-x-2"
+>
+  <FileText className="h-5 w-5" />
+  <span>Download Resume</span>
+</motion.a>
+
+
           </motion.div>
         </motion.div>
       </div>
-      
+
       {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
