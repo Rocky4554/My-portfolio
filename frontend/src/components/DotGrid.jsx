@@ -22,7 +22,7 @@ function hexToRgb(hex) {
   return {
     r: parseInt(m[1], 16),
     g: parseInt(m[2], 16),
-    b: parseInt(m[3], 16)
+    b: parseInt(m[3], 16),
   };
 }
 
@@ -39,7 +39,7 @@ const DotGrid = ({
   resistance = 750,
   returnDuration = 1.5,
   className = '',
-  style
+  style,
 }) => {
   const wrapperRef = useRef(null);
   const canvasRef = useRef(null);
@@ -52,7 +52,7 @@ const DotGrid = ({
     speed: 0,
     lastTime: 0,
     lastX: 0,
-    lastY: 0
+    lastY: 0,
   });
 
   const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
@@ -60,7 +60,6 @@ const DotGrid = ({
 
   const circlePath = useMemo(() => {
     if (typeof window === 'undefined' || !window.Path2D) return null;
-
     const p = new Path2D();
     p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
     return p;
@@ -105,51 +104,55 @@ const DotGrid = ({
     dotsRef.current = dots;
   }, [dotSize, gap]);
 
-  useEffect(() => {
-    if (!circlePath) return;
+ useEffect(() => {
+  if (!circlePath) return;
 
-    let rafId;
-    const proxSq = proximity * proximity;
+  let rafId;
+  const proxSq = proximity * proximity;
 
-    const draw = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const draw = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-      const { x: px, y: py } = pointerRef.current;
+    // ✅ clear using CSS pixel size, not device pixel size
+    const { width, height } = wrapperRef.current.getBoundingClientRect();
+    ctx.clearRect(0, 0, width, height);
 
-      for (const dot of dotsRef.current) {
-        const ox = dot.cx + dot.xOffset;
-        const oy = dot.cy + dot.yOffset;
-        const dx = dot.cx - px;
-        const dy = dot.cy - py;
-        const dsq = dx * dx + dy * dy;
+    const { x: px, y: py } = pointerRef.current;
 
-        let style = baseColor;
-        if (dsq <= proxSq) {
-          const dist = Math.sqrt(dsq);
-          const t = 1 - dist / proximity;
-          const r = Math.round(baseRgb.r + (activeRgb.r - baseRgb.r) * t);
-          const g = Math.round(baseRgb.g + (activeRgb.g - baseRgb.g) * t);
-          const b = Math.round(baseRgb.b + (activeRgb.b - baseRgb.b) * t);
-          style = `rgb(${r},${g},${b})`;
-        }
+    for (const dot of dotsRef.current) {
+      const ox = dot.cx + dot.xOffset;
+      const oy = dot.cy + dot.yOffset;
+      const dx = dot.cx - px;
+      const dy = dot.cy - py;
+      const dsq = dx * dx + dy * dy;
 
-        ctx.save();
-        ctx.translate(ox, oy);
-        ctx.fillStyle = style;
-        ctx.fill(circlePath);
-        ctx.restore();
+      let style = baseColor;
+      if (dsq <= proxSq) {
+        const dist = Math.sqrt(dsq);
+        const t = 1 - dist / proximity;
+        const r = Math.round(baseRgb.r + (activeRgb.r - baseRgb.r) * t);
+        const g = Math.round(baseRgb.g + (activeRgb.g - baseRgb.g) * t);
+        const b = Math.round(baseRgb.b + (activeRgb.b - baseRgb.b) * t);
+        style = `rgb(${r},${g},${b})`;
       }
 
-      rafId = requestAnimationFrame(draw);
-    };
+      ctx.save();
+      ctx.translate(ox, oy);
+      ctx.fillStyle = style;
+      ctx.fill(circlePath);
+      ctx.restore();
+    }
 
-    draw();
-    return () => cancelAnimationFrame(rafId);
-  }, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
+    rafId = requestAnimationFrame(draw);
+  };
+
+  draw();
+  return () => cancelAnimationFrame(rafId);
+}, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
+
 
   useEffect(() => {
     buildGrid();
@@ -167,7 +170,7 @@ const DotGrid = ({
   }, [buildGrid]);
 
   useEffect(() => {
-    const onMove = e => {
+    const onMove = (e) => {
       const now = performance.now();
       const pr = pointerRef.current;
       const dt = pr.lastTime ? now - pr.lastTime : 16;
@@ -190,8 +193,9 @@ const DotGrid = ({
       pr.speed = speed;
 
       const rect = canvasRef.current.getBoundingClientRect();
-      pr.x = e.clientX - rect.left;
-      pr.y = e.clientY - rect.top;
+      // ✅ Clamp pointer inside canvas bounds
+      pr.x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+      pr.y = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
 
       for (const dot of dotsRef.current) {
         const dist = Math.hypot(dot.cx - pr.x, dot.cy - pr.y);
@@ -207,19 +211,21 @@ const DotGrid = ({
                 xOffset: 0,
                 yOffset: 0,
                 duration: returnDuration,
-                ease: 'elastic.out(1,0.75)'
+                ease: 'elastic.out(1,0.75)',
               });
               dot._inertiaApplied = false;
-            }
+            },
           });
         }
       }
     };
 
-    const onClick = e => {
+    const onClick = (e) => {
       const rect = canvasRef.current.getBoundingClientRect();
-      const cx = e.clientX - rect.left;
-      const cy = e.clientY - rect.top;
+      // ✅ Clamp click coords inside canvas
+      const cx = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+      const cy = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
+
       for (const dot of dotsRef.current) {
         const dist = Math.hypot(dot.cx - cx, dot.cy - cy);
         if (dist < shockRadius && !dot._inertiaApplied) {
@@ -235,10 +241,10 @@ const DotGrid = ({
                 xOffset: 0,
                 yOffset: 0,
                 duration: returnDuration,
-                ease: 'elastic.out(1,0.75)'
+                ease: 'elastic.out(1,0.75)',
               });
               dot._inertiaApplied = false;
-            }
+            },
           });
         }
       }
@@ -255,9 +261,15 @@ const DotGrid = ({
   }, [maxSpeed, speedTrigger, proximity, resistance, returnDuration, shockRadius, shockStrength]);
 
   return (
-    <section className={`p-4 flex items-center justify-center h-full w-full relative ${className}`} style={style}>
+    <section
+      className={`p-4 flex items-center justify-center h-full w-full relative ${className}`}
+      style={style}
+    >
       <div ref={wrapperRef} className="w-full h-full relative">
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full pointer-events-none"
+        />
       </div>
     </section>
   );
