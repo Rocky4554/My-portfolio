@@ -108,10 +108,7 @@
 //                 the developer community.
 //               </p>
 
-             
 //             </div>
-
-            
 
 //             {/* Highlights Grid */}
 //             <div className="grid grid-row-5 gap-4 pt-2">
@@ -148,7 +145,6 @@
 // };
 
 // export default About;
-
 
 ///////////////
 
@@ -305,6 +301,7 @@ import { Zap } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
 import LightRays from "../components/LightRays";
 import PortfolioCards from "../components/portfoliocards";
+import ShinyText from "../components/ShinyText";
 
 const About = () => {
   const { isDark } = useTheme();
@@ -363,32 +360,83 @@ const About = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 md:w-24 md:h-24 bg-blue-600 dark:bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+              {/* <div className="absolute -bottom-4 -right-4 w-20 h-20 md:w-24 md:h-24 bg-blue-600 dark:bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
                 <Zap className="h-10 w-10 md:h-12 md:w-12 text-white" />
-              </div>
+              </div> */}
             </div>
           </motion.div>
 
           {/* About Description */}
-          <motion.div
+        {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              I'm a passionate full-stack developer with over 5 years of
-              experience creating digital solutions that combine beautiful
+            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+              I'm a passionate full-stack developer with
+              experience in creating digital solutions that combine beautiful
               design with robust functionality. I specialize in React,
-              Node.js, and modern web technologies.
+              Javascript, Node.js, Tailwind CSS and many more modern web technologies.
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
               When I'm not coding, you'll find me exploring new technologies,
               contributing to open-source projects, or sharing knowledge with
               the developer community.
             </p>
-          </motion.div>
+          </motion.div>  */}
+
+          {/* <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  viewport={{ once: true }}
+  className="space-y-4"
+>
+  <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+    I'm a passionate <span className="text-red-500 font-semibold">frontend</span> and 
+    full-stack developer with experience in creating digital solutions that combine 
+    beautiful design with robust functionality. I specialize in React, Javascript, 
+    Node.js, Tailwind CSS and many more modern web technologies.
+  </p>
+  
+  <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+    When I'm not coding, you'll find me exploring new technologies, contributing 
+    to open-source projects, or sharing knowledge with the developer community.
+  </p>
+</motion.div> */}
+
+{/* Using different typography (heading + body text) */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  viewport={{ once: true }}
+  className="space-y-6"
+>
+  <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+    Passionate <span className="text-red-400">Frontend</span> Developer
+  </h3>
+  
+  <div className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+  <div className="text-lg leading-relaxed">
+  I'm a <span className="text-teal-400 font-semibold">frontend</span> developer with 
+  experience in creating digital solutions that combine beautiful design with robust 
+  functionality. I specialize in <span className="text-blue-400 font-medium">React</span>, 
+  <span className="text-yellow-400 font-medium">Javascript</span>, 
+  <span className="text-green-400 font-medium">Node.js</span>, 
+  <span className="text-cyan-400 font-medium">Tailwind CSS</span>, 
+  <span className="text-emerald-400 font-medium">MongoDB</span> and many more modern web technologies.
+</div>
+
+    
+    <div>
+      When I'm not coding, you'll find me exploring new technologies, contributing 
+      to open-source projects, or sharing knowledge with the developer community.
+    </div>
+  </div>
+</motion.div>
 
           {/* Skills Section (no shiny box) */}
           <motion.div
@@ -398,13 +446,12 @@ const About = () => {
             viewport={{ once: true }}
             className="mt-[-8rem]" // Moves it slightly up
           >
-            
             <div className="grid grid-cols-1 gap-6 py-4">
               <PortfolioCards />
             </div>
 
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-          Top Skills
+              Top Skills
             </h3>
           </motion.div>
         </div>
@@ -414,7 +461,3 @@ const About = () => {
 };
 
 export default About;
-
-
-
-

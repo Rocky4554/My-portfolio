@@ -95,7 +95,7 @@
   opacity: 0;
   transform: rotateX(120deg);
   transform-origin: 50% 100%;
-  animation: show 0.01s forwards, pop-word 1.5s forwards;
+  animation: show 0.01s forwards, pop-word 2.5s forwards;
   animation-timing-function: cubic-bezier(0.14, 1.23, 0.33, 1.16);
 }
 
@@ -167,7 +167,7 @@
     0 50%,
     31.39% 34.86%
   );
-  animation: sparkle 0.4s linear 3.5s forwards;
+  animation: sparkle 0.3s linear 4.5s forwards;
 }
 
 /* Responsive */

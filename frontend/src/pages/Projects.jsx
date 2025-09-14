@@ -128,8 +128,6 @@
 
 // export default Projects;
 
-
-
 //////////////
 
 // import React, { useState } from 'react';
@@ -138,7 +136,7 @@
 
 // const Projects = () => {
 //   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'carousel'
-  
+
 //   const projects = [
 //     {
 //       title: "E-Commerce Platform",
@@ -275,25 +273,25 @@
 //           >
 //             {/* Overlay */}
 //             <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-            
+
 //             {/* Content */}
 //             <div className="project-content absolute inset-0 flex flex-col justify-end p-6 text-white">
 //               {/* Icon */}
 //               <div className="mb-4 p-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-lg w-fit transition-all duration-300 group-hover:bg-opacity-30">
 //                 {project.icon}
 //               </div>
-              
+
 //               {/* Title */}
 //               <h3 className="text-xl font-bold mb-2 group-hover:text-blue-300 transition-colors duration-300">
 //                 {project.title}
 //               </h3>
-              
+
 //               {/* Expandable Content */}
 //               <div className="project-details">
 //                 <p className="text-sm text-gray-200 mb-4 leading-relaxed">
 //                   {project.description}
 //                 </p>
-                
+
 //                 {/* Tech Stack */}
 //                 <div className="flex flex-wrap gap-2 mb-4">
 //                   {project.tech.slice(0, 3).map((tech, techIndex) => (
@@ -310,7 +308,7 @@
 //                     </span>
 //                   )}
 //                 </div>
-                
+
 //                 {/* Buttons */}
 //                 <div className="flex space-x-3">
 //                   <a
@@ -333,7 +331,7 @@
 //           </div>
 //         ))}
 //       </div>
-      
+
 //       <div className="text-center mt-6">
 //         <p className="text-gray-600 dark:text-gray-400 text-sm">
 //           Hover over the cards to explore each project in detail
@@ -358,7 +356,7 @@
 //           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
 //             A showcase of my recent work and personal projects
 //           </p>
-          
+
 //           {/* View Mode Toggle */}
 //           <div className="flex items-center justify-center gap-4 mb-8">
 //             <button
@@ -406,18 +404,18 @@
 //             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 //             will-change: flex-basis, transform;
 //           }
-          
+
 //           .project-card:hover {
 //             flex: 0 0 320px;
 //             transform: translateY(-15px);
 //             box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
 //           }
-          
+
 //           .project-content {
 //             background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(255, 255, 255, 0) 100%);
 //             transition: all 0.3s ease-out;
 //           }
-          
+
 //           .project-details {
 //             opacity: 0;
 //             transform: translateY(20px);
@@ -425,7 +423,7 @@
 //             transition: opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s, visibility 0.3s ease-out 0.1s;
 //             will-change: opacity, transform;
 //           }
-          
+
 //           .project-card:hover .project-details {
 //             opacity: 1;
 //             transform: translateY(0px);
@@ -439,12 +437,12 @@
 //           .project-card:hover img {
 //             transform: scale(1.05);
 //           }
-          
+
 //           @media (max-width: 768px) {
 //             .project-card {
 //               flex: 0 0 80px;
 //             }
-            
+
 //             .project-card:hover {
 //               flex: 0 0 220px;
 //               transform: translateY(-10px);
@@ -458,13 +456,7 @@
 
 // export default Projects;
 
-
-
-
-
-
 //////////
-
 
 // import React, { useState } from 'react';
 // import { motion } from 'framer-motion';
@@ -472,7 +464,7 @@
 
 // const Projects = () => {
 //   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'carousel'
-  
+
 //   const projects = [
 //     {
 //       title: "E-Commerce Platform",
@@ -613,25 +605,25 @@
 
 //             {/* Overlay */}
 //             <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-            
+
 //             {/* Content */}
 //             <div className="project-content absolute inset-0 flex flex-col justify-end p-6 text-white">
 //               {/* Icon */}
 //               <div className="mb-4 p-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-lg w-fit transition-all duration-300 group-hover:bg-opacity-30">
 //                 {project.icon}
 //               </div>
-              
+
 //               {/* Title */}
 //               <h3 className="text-xl font-bold mb-2 group-hover:text-blue-300 transition-colors duration-300">
 //                 {project.title}
 //               </h3>
-              
+
 //               {/* Expandable Content */}
 //               <div className="project-details">
 //                 <p className="text-sm text-gray-200 mb-4 leading-relaxed">
 //                   {project.description}
 //                 </p>
-                
+
 //                 {/* Tech Stack */}
 //                 <div className="flex flex-wrap gap-2 mb-4">
 //                   {project.tech.slice(0, 3).map((tech, techIndex) => (
@@ -648,7 +640,7 @@
 //                     </span>
 //                   )}
 //                 </div>
-                
+
 //                 {/* Buttons */}
 //                 <div className="flex space-x-3">
 //                   <a
@@ -671,7 +663,7 @@
 //           </div>
 //         ))}
 //       </div>
-      
+
 //       <div className="text-center mt-6">
 //         <p className="text-gray-600 dark:text-gray-400 text-sm">
 //           Hover over the cards to explore each project in detail
@@ -686,18 +678,18 @@
 //           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 //           will-change: flex-basis, transform;
 //         }
-        
+
 //         .project-card:hover {
 //           flex: 0 0 320px;
 //           transform: translateY(-15px);
 //           box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
 //         }
-        
+
 //         .project-content {
 //           background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(255, 255, 255, 0) 100%);
 //           transition: all 0.3s ease-out;
 //         }
-        
+
 //         .project-details {
 //           opacity: 0;
 //           transform: translateY(20px);
@@ -705,18 +697,18 @@
 //           transition: opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s, visibility 0.3s ease-out 0.1s;
 //           will-change: opacity, transform;
 //         }
-        
+
 //         .project-card:hover .project-details {
 //           opacity: 1;
 //           transform: translateY(0px);
 //           visibility: visible;
 //         }
-        
+
 //         @media (max-width: 768px) {
 //           .project-card {
 //             flex: 0 0 80px;
 //           }
-          
+
 //           .project-card:hover {
 //             flex: 0 0 220px;
 //             transform: translateY(-10px);
@@ -742,7 +734,7 @@
 //           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
 //             A showcase of my recent work and personal projects
 //           </p>
-          
+
 //           {/* View Mode Toggle */}
 //           <div className="flex items-center justify-center gap-4 mb-8">
 //             <button
@@ -788,7 +780,6 @@
 
 /// deepseek
 
-
 // import React, { useState } from 'react';
 // import { motion } from 'framer-motion';
 // import { ExternalLink, Github, Smartphone, Globe, ShoppingCart, LayoutGrid, ArrowRightLeft, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -796,7 +787,7 @@
 // const Projects = () => {
 //   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'carousel'
 //   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
 //   const projects = [
 //     {
 //       title: "E-Commerce Platform",
@@ -847,13 +838,13 @@
 
 //   // Carousel navigation functions
 //   const nextProject = () => {
-//     setCurrentIndex((prevIndex) => 
+//     setCurrentIndex((prevIndex) =>
 //       prevIndex === projects.length - 1 ? 0 : prevIndex + 1
 //     );
 //   };
 
 //   const prevProject = () => {
-//     setCurrentIndex((prevIndex) => 
+//     setCurrentIndex((prevIndex) =>
 //       prevIndex === 0 ? projects.length - 1 : prevIndex - 1
 //     );
 //   };
@@ -935,7 +926,7 @@
 //   // ---------- CAROUSEL VIEW ----------
 //   const CarouselView = () => {
 //     const project = projects[currentIndex];
-    
+
 //     return (
 //       <div className="relative">
 //         <div className="flex justify-center items-center h-[500px] overflow-hidden">
@@ -956,24 +947,24 @@
 
 //             {/* Overlay */}
 //             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-            
+
 //             {/* Content */}
 //             <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
 //               {/* Icon */}
 //               <div className="mb-4 p-3 bg-white bg-opacity-20 backdrop-blur-sm rounded-lg w-fit">
 //                 {project.icon}
 //               </div>
-              
+
 //               {/* Title */}
 //               <h3 className="text-2xl font-bold mb-3">
 //                 {project.title}
 //               </h3>
-              
+
 //               {/* Description */}
 //               <p className="text-lg text-gray-200 mb-5 leading-relaxed max-w-2xl">
 //                 {project.description}
 //               </p>
-              
+
 //               {/* Tech Stack */}
 //               <div className="flex flex-wrap gap-2 mb-6">
 //                 {project.tech.map((tech, techIndex) => (
@@ -985,7 +976,7 @@
 //                   </span>
 //                 ))}
 //               </div>
-              
+
 //               {/* Buttons */}
 //               <div className="flex space-x-4">
 //                 <motion.a
@@ -1010,7 +1001,7 @@
 //             </div>
 //           </motion.div>
 //         </div>
-        
+
 //         {/* Navigation Arrows */}
 //         <button
 //           onClick={prevProject}
@@ -1024,7 +1015,7 @@
 //         >
 //           <ChevronRight className="h-6 w-6" />
 //         </button>
-        
+
 //         {/* Indicators */}
 //         <div className="flex justify-center mt-6 space-x-2">
 //           {projects.map((_, index) => (
@@ -1032,8 +1023,8 @@
 //               key={index}
 //               onClick={() => setCurrentIndex(index)}
 //               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-//                 index === currentIndex 
-//                   ? 'bg-blue-600 scale-125' 
+//                 index === currentIndex
+//                   ? 'bg-blue-600 scale-125'
 //                   : 'bg-gray-400 hover:bg-gray-300'
 //               }`}
 //             />
@@ -1059,7 +1050,7 @@
 //           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
 //             A showcase of my recent work and personal projects
 //           </p>
-          
+
 //           {/* View Mode Toggle */}
 //           <div className="flex items-center justify-center gap-4 mb-8">
 //             <button
@@ -1103,9 +1094,7 @@
 
 // export default Projects;
 
-
 ////////////////////////
-
 
 // import React from "react";
 // import { motion } from "framer-motion";
@@ -1788,7 +1777,6 @@
 
 // export default Projects;
 
-
 ////////////////////
 
 // "use client";
@@ -2014,11 +2002,9 @@
 //   },
 // ];
 
-
 // export default function ProjectsShowcase() {
 //   return <AnimatedProjects projects={projects} autoplay={true} />;
 // }
-
 
 //////////
 
@@ -2194,7 +2180,6 @@
 
 // export default Projects;
 
-
 /////////////////
 // import React, { useState, useEffect } from "react";
 // import { motion } from "framer-motion";
@@ -2265,7 +2250,7 @@
 //     >
 //       <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center gap-12">
 //         {/* Project Details Panel - Left Side */}
-//         <motion.div 
+//         <motion.div
 //           className="w-full lg:w-1/2 text-white"
 //           initial={{ opacity: 0, x: -50 }}
 //           animate={{ opacity: 1, x: 0 }}
@@ -2274,7 +2259,7 @@
 //           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center lg:text-left">
 //             My Projects
 //           </h2>
-          
+
 //           {selectedProject && (
 //             <motion.div
 //               key={selectedProject.id}
@@ -2344,7 +2329,7 @@
 //         </motion.div>
 
 //         {/* Carousel - Right Side */}
-//         <div 
+//         <div
 //           className="w-full lg:w-1/2"
 //           onMouseEnter={() => setIsHovered(true)}
 //           onMouseLeave={() => setIsHovered(false)}
@@ -2581,8 +2566,8 @@
 //               initial={{ opacity: 0, y: 20 }}
 //               animate={{ opacity: 1, y: 0 }}
 //               transition={{ duration: 0.5 }}
-//               className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl 
-//                          border border-gray-300 dark:border-white/20 
+//               className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl
+//                          border border-gray-300 dark:border-white/20
 //                          text-black dark:text-white"
 //             >
 //               {/* Project Icon and Title */}
@@ -2612,9 +2597,9 @@
 //                   {selectedProject.tech.map((tech, index) => (
 //                     <span
 //                       key={index}
-//                       className="px-3 py-1 text-sm 
-//                                  bg-gray-100 dark:bg-white/20 backdrop-blur-sm 
-//                                  text-black dark:text-white 
+//                       className="px-3 py-1 text-sm
+//                                  bg-gray-100 dark:bg-white/20 backdrop-blur-sm
+//                                  text-black dark:text-white
 //                                  rounded-full border border-gray-300 dark:border-white/30"
 //                     >
 //                       {tech}
@@ -2631,9 +2616,9 @@
 //                   href={selectedProject.live}
 //                   target="_blank"
 //                   rel="noopener noreferrer"
-//                   className="flex items-center gap-2 px-6 py-3 
-//                              bg-gray-700/80 hover:bg-gray-600 
-//                              rounded-lg shadow-lg 
+//                   className="flex items-center gap-2 px-6 py-3
+//                              bg-gray-700/80 hover:bg-gray-600
+//                              rounded-lg shadow-lg
 //                              text-white font-medium transition-colors backdrop-blur-sm"
 //                 >
 //                   <ExternalLink className="h-4 w-4" />
@@ -2645,9 +2630,9 @@
 //                   href={selectedProject.github}
 //                   target="_blank"
 //                   rel="noopener noreferrer"
-//                   className="flex items-center gap-2 px-6 py-3 
-//                              bg-gray-700/80 hover:bg-gray-600 
-//                              rounded-lg shadow-lg 
+//                   className="flex items-center gap-2 px-6 py-3
+//                              bg-gray-700/80 hover:bg-gray-600
+//                              rounded-lg shadow-lg
 //                              text-white font-medium transition-colors backdrop-blur-sm"
 //                 >
 //                   <Github className="h-4 w-4" />
@@ -2664,10 +2649,264 @@
 
 // export default Projects;
 
-/////
+///// Heading set ///////////////////
+// import React, { useState, useEffect } from "react";
+// import { motion } from "framer-motion";
+// import { Github, ExternalLink, ShoppingCart, Smartphone, Globe } from "lucide-react";
+
+// // Enhanced projects with full details
+// const projects = [
+//   {
+//     id: 1,
+//     title: "E-Commerce Platform",
+//     subtitle: "Full-Stack Solution",
+//     description:
+//       "A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, shopping cart, and admin dashboard.",
+//     tech: ["React", "Node.js", "MongoDB", "Stripe"],
+//     live: "https://your-live-demo.com",
+//     github: "https://github.com/your-username/ecommerce",
+//     image:
+//       "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     icon: <ShoppingCart className="h-6 w-6" />,
+//   },
+//   {
+//     id: 2,
+//     title: "Task Management App",
+//     subtitle: "Collaborative Solution",
+//     description:
+//       "A collaborative task management application with real-time updates, team collaboration, and project tracking capabilities.",
+//     tech: ["React", "Firebase", "Tailwind CSS", "Socket.io"],
+//     live: "https://your-live-demo.com",
+//     github: "https://github.com/your-username/taskapp",
+//     image:
+//       "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     icon: <Smartphone className="h-6 w-6" />,
+//   },
+//   {
+//     id: 3,
+//     title: "Weather Dashboard",
+//     subtitle: "Data Visualization",
+//     description:
+//       "A beautiful weather dashboard with location-based forecasts, interactive maps, and weather data visualization.",
+//     tech: ["React", "TypeScript", "Weather API", "Chart.js"],
+//     live: "https://your-live-demo.com",
+//     github: "https://github.com/your-username/weather",
+//     image:
+//       "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     icon: <Globe className="h-6 w-6" />,
+//   },
+// ];
+
+// const Projects = () => {
+//   const [selected, setSelected] = useState(1);
+//   const [isHovered, setIsHovered] = useState(false);
+//   const selectedIndex = projects.findIndex((p) => p.id === selected);
+//   const selectedProject = projects[selectedIndex];
+
+//   // Auto-scroll every 4s (only when not hovered)
+//   useEffect(() => {
+//     if (isHovered) return;
+//     const interval = setInterval(() => {
+//       setSelected((prev) => {
+//         const currentIndex = projects.findIndex((p) => p.id === prev);
+//         const nextIndex = (currentIndex + 1) % projects.length;
+//         return projects[nextIndex].id;
+//       });
+//     }, 4000);
+//     return () => clearInterval(interval);
+//   }, [isHovered]);
+
+//   return (
+//     <section
+//       id="projects"
+//       className="min-h-screen pt-32 flex flex-col items-center justify-center bg-white dark:bg-black"
+//     >
+//       {/* Title at the top */}
+//       <motion.h2
+//         className="text-4xl md:text-5xl font-bold mb-16 text-center text-black dark:text-white"
+//         initial={{ opacity: 0, y: -30 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.7, ease: "easeOut" }}
+//       >
+//         My Projects
+//       </motion.h2>
+
+//       <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center gap-20">
+//         {/* Carousel - LEFT side */}
+//         <div
+//           className="w-full lg:w-1/2 flex justify-center"
+//           onMouseEnter={() => setIsHovered(true)}
+//           onMouseLeave={() => setIsHovered(false)}
+//         >
+//           <div className="relative w-full max-w-[500px] h-[450px] flex items-center justify-center">
+//             {projects.map((project, index) => {
+//               let offset = index - selectedIndex;
+//               const half = Math.floor(projects.length / 2);
+//               if (offset > half) offset -= projects.length;
+//               if (offset < -half) offset += projects.length;
+
+//               const x = offset * 220; // space between cards
+//               const isCenter = offset === 0;
+
+//               return (
+//                 <motion.div
+//                   key={project.id}
+//                   onClick={() => setSelected(project.id)}
+//                   className="absolute w-4/5 h-4/5 rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
+//                   initial={false}
+//                   animate={{
+//                     x,
+//                     scale: isCenter ? 1 : 0.75,
+//                     opacity: isCenter ? 1 : 0.4,
+//                     filter: isCenter ? "brightness(100%)" : "brightness(70%)",
+//                   }}
+//                   transition={{
+//                     type: "spring",
+//                     stiffness: 160, // reduced stiffness
+//                     damping: 22,   // slightly higher damping
+//                   }}
+//                   style={{ zIndex: 10 - Math.abs(offset) }}
+//                 >
+//                   <img
+//                     src={project.image}
+//                     alt={project.title}
+//                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+//                   />
+
+//                   {/* Overlay for center card */}
+//                   {isCenter && (
+//                     <motion.div
+//                       className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-4"
+//                       initial={{ opacity: 0 }}
+//                       animate={{ opacity: 1 }}
+//                       exit={{ opacity: 0 }}
+//                       transition={{ duration: 0.4, ease: "easeOut" }}
+//                     >
+//                       <div className="text-center text-white">
+//                         <h4 className="text-lg font-semibold">
+//                           {project.title}
+//                         </h4>
+//                         <p className="text-sm text-white/80">
+//                           {project.subtitle}
+//                         </p>
+//                       </div>
+//                     </motion.div>
+//                   )}
+//                 </motion.div>
+//               );
+//             })}
+//           </div>
+//         </div>
+
+//         {/* Project Details - RIGHT side */}
+//         <motion.div
+//           className="w-full lg:w-1/2"
+//           initial={{ opacity: 0, x: 50 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           transition={{ duration: 0.6, ease: "easeOut" }}
+//         >
+//           {selectedProject && (
+//             <motion.div
+//               key={selectedProject.id}
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, ease: "easeOut" }}
+//               className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl
+//                          border border-gray-300 dark:border-white/20
+//                          text-black dark:text-white"
+//             >
+//               {/* Project Icon and Title */}
+//               <div className="flex items-center gap-3 mb-4">
+//                 <div className="p-2 bg-gray-200 dark:bg-white/20 rounded-lg">
+//                   {selectedProject.icon}
+//                 </div>
+//                 <div>
+//                   <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
+//                   <p className="text-gray-600 dark:text-white/80">
+//                     {selectedProject.subtitle}
+//                   </p>
+//                 </div>
+//               </div>
+
+//               {/* Description */}
+//               <p className="text-gray-700 dark:text-white/90 mb-6 leading-relaxed">
+//                 {selectedProject.description}
+//               </p>
+
+//               {/* Tech Stack */}
+//               <div className="mb-6">
+//                 <h4 className="text-sm font-semibold mb-3 text-gray-600 dark:text-white/80">
+//                   Tech Stack
+//                 </h4>
+//                 <div className="flex flex-wrap gap-2">
+//                   {selectedProject.tech.map((tech, index) => (
+//                     <span
+//                       key={index}
+//                       className="px-3 py-1 text-sm
+//                                  bg-gray-100 dark:bg-white/20 backdrop-blur-sm
+//                                  text-black dark:text-white
+//                                  rounded-full border border-gray-300 dark:border-white/30"
+//                     >
+//                       {tech}
+//                     </span>
+//                   ))}
+//                 </div>
+//               </div>
+
+//               {/* Action Buttons */}
+//               <div className="flex gap-4">
+//                 <motion.a
+//                   whileHover={{ scale: 1.05 }}
+//                   whileTap={{ scale: 0.95 }}
+//                   href={selectedProject.live}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="flex items-center gap-2 px-6 py-3
+//                              bg-gray-700/80 hover:bg-gray-600
+//                              rounded-lg shadow-lg
+//                              text-white font-medium transition-colors backdrop-blur-sm"
+//                 >
+//                   <ExternalLink className="h-4 w-4" />
+//                   Live Demo
+//                 </motion.a>
+//                 <motion.a
+//                   whileHover={{ scale: 1.05 }}
+//                   whileTap={{ scale: 0.95 }}
+//                   href={selectedProject.github}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="flex items-center gap-2 px-6 py-3
+//                              bg-gray-700/80 hover:bg-gray-600
+//                              rounded-lg shadow-lg
+//                              text-white font-medium transition-colors backdrop-blur-sm"
+//                 >
+//                   <Github className="h-4 w-4" />
+//                   GitHub
+//                 </motion.a>
+//               </div>
+//             </motion.div>
+//           )}
+//         </motion.div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Projects;
+
+//////////////////
+
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ShoppingCart, Smartphone, Globe } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  ShoppingCart,
+  Smartphone,
+  Globe,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 // Enhanced projects with full details
 const projects = [
@@ -2722,24 +2961,46 @@ const Projects = () => {
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
-      setSelected((prev) => {
-        const currentIndex = projects.findIndex((p) => p.id === prev);
-        const nextIndex = (currentIndex + 1) % projects.length;
-        return projects[nextIndex].id;
-      });
+      handleNext();
     }, 4000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
+  const handleNext = () => {
+    setSelected((prev) => {
+      const currentIndex = projects.findIndex((p) => p.id === prev);
+      const nextIndex = (currentIndex + 1) % projects.length;
+      return projects[nextIndex].id;
+    });
+  };
+
+  const handlePrev = () => {
+    setSelected((prev) => {
+      const currentIndex = projects.findIndex((p) => p.id === prev);
+      const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+      return projects[prevIndex].id;
+    });
+  };
+
   return (
     <section
       id="projects"
-      className="min-h-screen pt-32 flex items-center justify-center bg-white dark:bg-black"
+      className="min-h-screen pt-32 flex flex-col items-center justify-center bg-white dark:bg-black"
     >
+      {/* Title at the top */}
+      <motion.h2
+        className="text-4xl md:text-5xl font-bold mb-16 text-center text-black dark:text-white"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        My Projects
+      </motion.h2>
+
       <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center gap-20">
         {/* Carousel - LEFT side */}
         <div
-          className="w-full lg:w-1/2 flex justify-center"
+          className="w-full lg:w-1/2 flex justify-center relative"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -2765,13 +3026,17 @@ const Projects = () => {
                     opacity: isCenter ? 1 : 0.4,
                     filter: isCenter ? "brightness(100%)" : "brightness(70%)",
                   }}
-                  transition={{ type: "spring", stiffness: 220, damping: 24 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 160,
+                    damping: 22,
+                  }}
                   style={{ zIndex: 10 - Math.abs(offset) }}
                 >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                   />
 
                   {/* Overlay for center card */}
@@ -2781,6 +3046,7 @@ const Projects = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                     >
                       <div className="text-center text-white">
                         <h4 className="text-lg font-semibold">
@@ -2795,6 +3061,41 @@ const Projects = () => {
                 </motion.div>
               );
             })}
+
+            {/* Navigation Buttons */}
+            {/* <div className="absolute bottom-4 flex gap-6">
+              <button
+                onClick={handlePrev}
+                className="p-3 bg-black/60 hover:bg-black/80 text-white rounded-full shadow-lg transition"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-3 bg-black/60 hover:bg-black/80 text-white rounded-full shadow-lg transition"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div> */}
+
+           {/* Navigation buttons */}
+<div className="flex justify-center gap-8 mt-10">
+  <button
+    onClick={handlePrev}
+    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md 
+               hover:scale-110 hover:shadow-lg transition flex items-center justify-center"
+  >
+    <ChevronLeft className="w-6 h-6 text-gray-800 dark:text-white" />
+  </button>
+  <button
+    onClick={handleNext}
+    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md 
+               hover:scale-110 hover:shadow-lg transition flex items-center justify-center"
+  >
+    <ChevronRight className="w-6 h-6 text-gray-800 dark:text-white" />
+  </button>
+</div>
+
           </div>
         </div>
 
@@ -2803,18 +3104,14 @@ const Projects = () => {
           className="w-full lg:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center lg:text-left text-black dark:text-white">
-            My Projects
-          </h2>
-
           {selectedProject && (
             <motion.div
               key={selectedProject.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl 
                          border border-gray-300 dark:border-white/20 
                          text-black dark:text-white"
@@ -2825,7 +3122,9 @@ const Projects = () => {
                   {selectedProject.icon}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
+                  <h3 className="text-2xl font-bold">
+                    {selectedProject.title}
+                  </h3>
                   <p className="text-gray-600 dark:text-white/80">
                     {selectedProject.subtitle}
                   </p>
@@ -3052,17 +3351,17 @@ export default Projects;
 //               whileHover={{ scale: 1.1 }}
 //               whileTap={{ scale: 0.9 }}
 //               onClick={handlePrevious}
-//               className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 
+//               className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700
 //                          text-gray-700 dark:text-gray-300 transition-colors shadow-lg"
 //             >
 //               <ChevronLeft className="h-6 w-6" />
 //             </motion.button>
-            
+
 //             <motion.button
 //               whileHover={{ scale: 1.1 }}
 //               whileTap={{ scale: 0.9 }}
 //               onClick={handleNext}
-//               className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 
+//               className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700
 //                          text-gray-700 dark:text-gray-300 transition-colors shadow-lg"
 //             >
 //               <ChevronRight className="h-6 w-6" />
@@ -3087,8 +3386,8 @@ export default Projects;
 //               initial={{ opacity: 0, y: 20 }}
 //               animate={{ opacity: 1, y: 0 }}
 //               transition={{ duration: 0.5 }}
-//               className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl 
-//                          border border-gray-300 dark:border-white/20 
+//               className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl
+//                          border border-gray-300 dark:border-white/20
 //                          text-black dark:text-white"
 //             >
 //               {/* Project Icon and Title */}
@@ -3118,9 +3417,9 @@ export default Projects;
 //                   {selectedProject.tech.map((tech, index) => (
 //                     <span
 //                       key={index}
-//                       className="px-3 py-1 text-sm 
-//                                  bg-gray-100 dark:bg-white/20 backdrop-blur-sm 
-//                                  text-black dark:text-white 
+//                       className="px-3 py-1 text-sm
+//                                  bg-gray-100 dark:bg-white/20 backdrop-blur-sm
+//                                  text-black dark:text-white
 //                                  rounded-full border border-gray-300 dark:border-white/30"
 //                     >
 //                       {tech}
@@ -3137,9 +3436,9 @@ export default Projects;
 //                   href={selectedProject.live}
 //                   target="_blank"
 //                   rel="noopener noreferrer"
-//                   className="flex items-center gap-2 px-6 py-3 
-//                              bg-gray-700/80 hover:bg-gray-600 
-//                              rounded-lg shadow-lg 
+//                   className="flex items-center gap-2 px-6 py-3
+//                              bg-gray-700/80 hover:bg-gray-600
+//                              rounded-lg shadow-lg
 //                              text-white font-medium transition-colors backdrop-blur-sm"
 //                 >
 //                   <ExternalLink className="h-4 w-4" />
@@ -3151,9 +3450,9 @@ export default Projects;
 //                   href={selectedProject.github}
 //                   target="_blank"
 //                   rel="noopener noreferrer"
-//                   className="flex items-center gap-2 px-6 py-3 
-//                              bg-gray-700/80 hover:bg-gray-600 
-//                              rounded-lg shadow-lg 
+//                   className="flex items-center gap-2 px-6 py-3
+//                              bg-gray-700/80 hover:bg-gray-600
+//                              rounded-lg shadow-lg
 //                              text-white font-medium transition-colors backdrop-blur-sm"
 //                 >
 //                   <Github className="h-4 w-4" />

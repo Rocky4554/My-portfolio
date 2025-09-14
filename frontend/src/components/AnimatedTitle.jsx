@@ -31,7 +31,7 @@ const AnimatedTitle = () => {
     Raunak
     <span className="superscript relative align-text-top"></span>
   </span>
-  <span className="word block text-yellow-400 animate-word delay-[1500ms] ml-[8.2rem] text-[6rem]">
+  <span className="word block text-yellow-400 animate-word delay-[1500ms] ml-[1.2rem] text-[6rem] mt-[-24px]">
     Kumar
   </span>
 </h1>

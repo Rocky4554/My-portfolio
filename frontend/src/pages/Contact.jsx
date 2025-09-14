@@ -303,22 +303,23 @@ const Contact = () => {
     }
   };
 
-  const contactInfo = [
+ const contactInfo = [
     {
       icon: <Mail className="h-6 w-6" />,
-      label: "Email",
+      // label: "Email",
       value: "kumarraunak085@gmail.com",
+      // href: "#"
     },
     {
       icon: <Phone className="h-6 w-6" />,
-      label: "Phone",
-      value: "8092345121",
-     
+      // label: "Phone",
+      value: "+91 8092345121",
+      // href: "tel:+15551234567"
     },
     {
       icon: <MapPin className="h-6 w-6" />,
-      label: "Location",
-      value: "Noida ,Uttar Pradesh, India",
+      // label: "Location",
+      value: "Noida, Uttar Pradesh, India",
       href: "#"
     }
   ];
@@ -336,12 +337,12 @@ const Contact = () => {
       href: "https://linkedin.com",
       color: "hover:text-blue-600"
     },
-    {
-      icon: <Twitter className="h-6 w-6" />,
-      label: "Twitter",
-      href: "https://twitter.com",
-      color: "hover:text-blue-400"
-    }
+    // {
+    //   icon: <Twitter className="h-6 w-6" />,
+    //   label: "Twitter",
+    //   href: "https://twitter.com",
+    //   color: "hover:text-blue-400"
+    // }
   ];
 
   // styles used to create 3D flip (inline styles to keep compatibility)
