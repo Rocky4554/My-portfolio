@@ -630,7 +630,7 @@ import { ChevronDown, Mail } from "lucide-react";
 import { useTheme } from "../hooks/useTheme"; // Adjust path based on your project structure
 import DotGrid from "../components/DotGrid"; // Adjust path if necessary
 import { FileText } from "lucide-react";
-
+import AnimatedTitle from "../components/AnimatedTitle";
 
 import SplitText from "../components/SplitText";
 
@@ -707,14 +707,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1
+          {/* <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-6xl md:text-6xl lg:text-10xl font-bold text-gray-900 dark:text-white mb-6 m-4"
           >
             Building bridges between <br></br>design and code.
-          </motion.h1>
+          </motion.h1> */}
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -725,7 +725,7 @@ const Hero = () => {
             Hello, I'm
           </motion.p>
 
-          <SplitText
+          {/* <SplitText
             text="RAUNAK KUMAR"
             className="text-5xl font-semibold text-center"
             delay={100}
@@ -737,7 +737,15 @@ const Hero = () => {
             threshold={0.1}
             rootMargin="-100px"
             textAlign="center"
-          />
+          /> */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <AnimatedTitle />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 50 }}
@@ -786,25 +794,22 @@ const Hero = () => {
               <span>Contact Me</span>
             </motion.button>
 
-            
             {/* Download Resume Button (styled like Contact Me) */}
-             {/* Download Resume Button (matches Contact Me) */}
-<motion.a
-  whileHover={{ scale: 1.05, y: -2 }}
-  whileTap={{ scale: 0.95 }}
-  href="/Raunak_Kumar_Resume.pdf" // put resume in /public folder
-  target="_blank"
-  rel="noopener noreferrer"
-  download
-  className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-950 text-gray-700 dark:text-gray-300 
+            {/* Download Resume Button (matches Contact Me) */}
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="/Raunak_Kumar_Resume.pdf" // put resume in /public folder
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-950 text-gray-700 dark:text-gray-300 
              hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 
              rounded-xl font-medium transition-all duration-300 flex items-center space-x-2"
->
-  <FileText className="h-5 w-5" />
-  <span>Download Resume</span>
-</motion.a>
-
-
+            >
+              <FileText className="h-5 w-5" />
+              <span>Download Resume</span>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
