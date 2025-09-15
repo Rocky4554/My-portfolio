@@ -633,7 +633,7 @@ import { FileText } from "lucide-react";
 import AnimatedTitle from "../components/AnimatedTitle";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
-
+import { RainbowButton } from "../components/ui/rainbow-button"
 
 import SplitText from "../components/SplitText";
 
@@ -771,11 +771,23 @@ const Hero = () => {
             design with powerful functionality
           </motion.p>
 
+          {/* Read About Me */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            onClick={() => scrollToSection("about")}
+            className="flex justify-center mb-12"
+          >
+            <RainbowButton>Read About Me</RainbowButton>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+             
           >
             {/* View My Work Button */}
             {/* <motion.button
@@ -794,7 +806,7 @@ const Hero = () => {
               onClick={() => scrollToSection("projects")}
               className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 cursor-pointer"
             >
-               <ChevronDown className="h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
+              <ChevronDown className="h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
               <span>View My Work</span>
             </HoverBorderGradient>
 
@@ -834,20 +846,20 @@ const Hero = () => {
               <span>Download Resume</span>
             </motion.a> */}
 
-
-             {/* Download Resume Button*/}
-              <InteractiveHoverButton onClick={() => {
+            {/* Download Resume Button*/}
+            <InteractiveHoverButton
+              onClick={() => {
                 const link = document.createElement("a");
                 link.href = "/Raunak_Kumar_Resume.pdf"; // Make sure this file is in /public
                 link.download = "Raunak_Kumar_Resume.pdf";
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-              }}>
-              <span>Download Resume</span></InteractiveHoverButton>
+              }}
+            >
+              <span>Download Resume</span>
+            </InteractiveHoverButton>
 
-
-           
             {/* <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

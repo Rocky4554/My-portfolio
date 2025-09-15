@@ -260,7 +260,7 @@ const Contact = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     defaultValues: {
       name: '',
-      email: '',
+      email: '',  
       message: ''
     }
   });
@@ -357,7 +357,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
@@ -408,7 +408,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Follow Me
               </h3>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 ml-57">
                 {socialLinks.map((s, i) => (
                   <a
                     key={i}
@@ -444,9 +444,9 @@ const Contact = () => {
                 >
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      {/* <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         Name *
-                      </label>
+                      </label> */}
                       <input
                         id="name"
                         {...register('name', {
@@ -463,9 +463,9 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      {/* <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         Email *
-                      </label>
+                      </label> */}
                       <input
                         id="email"
                         {...register('email', {
@@ -482,9 +482,9 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      {/* <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         Message *
-                      </label>
+                      </label> */}
                       <textarea
                         id="message"
                         {...register('message', {
@@ -495,7 +495,7 @@ const Contact = () => {
                         className={`w-full px-4 py-3 bg-white dark:bg-gray-900 border ${
                           errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-700'
                         } rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white resize-none`}
-                        placeholder="Tell me about your project..."
+                        placeholder="Your valuable message or tell me about your project..."
                         disabled={isSubmitting}
                       />
                       {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}

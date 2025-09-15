@@ -306,7 +306,72 @@
 
 ///////////
 
-import { useState } from "react";
+// import { useState } from "react";
+// import { motion } from "framer-motion";
+// import {
+//   Home,
+//   User,
+//   LayoutGrid,
+//   FileText,
+//   Image as ImageIcon,
+//   Sun,
+//   Moon,
+// } from "lucide-react";
+// import { useTheme } from "../hooks/useTheme"; // Add this import
+
+// // nav items with icons
+// const navItems = [
+//   { id: "home", label: "Home", icon: <Home className="h-4 w-4" /> },
+//   { id: "about", label: "About", icon: <User className="h-4 w-4" /> },
+//   { id: "projects", label: "Projects", icon: <LayoutGrid className="h-4 w-4" /> },
+//   { id: "skills", label: "Skills", icon: <FileText className="h-4 w-4" /> },
+//   { id: "contact", label: "Contacts", icon: <ImageIcon className="h-4 w-4" /> },
+// ];
+
+// export default function FloatingHeader() {
+//   const [active, setActive] = useState("home");
+//   const { isDark, toggleTheme } = useTheme(); // Use the theme context
+
+//   const handleNavClick = (id) => {
+//     setActive(id);
+//     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+//   };
+
+//   return (
+//     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+//       <div className="flex items-center gap-2 rounded-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm px-4 py-2 shadow-lg">
+//         {navItems.map((item) => (
+//           <motion.button
+//             key={item.id}
+//             onClick={() => handleNavClick(item.id)}
+//             whileTap={{ scale: 0.9 }}
+//             className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+//               active === item.id || item.id === "home"
+//                 ? "bg-blue-100 dark:bg-cyan-900 text-blue-800 dark:text-blue-200"
+//                 : "text-gray-700 dark:text-gray-300"
+//             } hover:bg-blue-100 dark:hover:bg-blue-800/40 hover:text-blue-700 dark:hover:text-blue-200`}
+//           >
+//             {item.icon}
+//             {item.label}
+//           </motion.button>
+//         ))}
+
+//         <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2" />
+
+//         <motion.button
+//           whileTap={{ rotate: 180, scale: 0.9 }}
+//           onClick={toggleTheme} // Use toggleTheme from context
+//           className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+//         >
+//           {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+//         </motion.button>
+//       </div>
+//     </div>
+//   );
+// }
+
+///////////////
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Home,
@@ -317,9 +382,8 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
-import { useTheme } from "../hooks/useTheme"; // Add this import
+import { useTheme } from "../hooks/useTheme";
 
-// nav items with icons
 const navItems = [
   { id: "home", label: "Home", icon: <Home className="h-4 w-4" /> },
   { id: "about", label: "About", icon: <User className="h-4 w-4" /> },
@@ -330,42 +394,109 @@ const navItems = [
 
 export default function FloatingHeader() {
   const [active, setActive] = useState("home");
-  const { isDark, toggleTheme } = useTheme(); // Use the theme context
+  const { isDark, toggleTheme } = useTheme();
 
   const handleNavClick = (id) => {
     setActive(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // 🔥 Scroll spy
+  useEffect(() => {
+    const sections = navItems.map((item) => document.getElementById(item.id));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "-50px 0px -50% 0px",
+      }
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  // const blurHeaderStyles = {
+  //   height: "var(--static-space-80, 5rem)",
+  //   background: `linear-gradient(
+  //     var(--gradient-direction, 180deg),
+  //     color-mix(in srgb, var(--base-color) 60%, transparent),
+  //     color-mix(in srgb, var(--base-color) 30%, transparent),
+  //     transparent
+  //   )`,
+  //   backdropFilter: "blur(12px)",
+  //   "--static-space-80": "5rem",
+  //   "--base-color": isDark ? "#111827" : "#ffffff",
+  //   "--gradient-direction": "180deg",
+  // };
+
+  const blurHeaderStyles = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  height: "2rem", // slightly bigger so blur shows below header
+  background: isDark
+    ? "linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), transparent)"
+    : "linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6), transparent)",
+  backdropFilter: "blur(16px)", // stronger blur
+  WebkitBackdropFilter: "blur(16px)", // safari support
+  pointerEvents: "none", // make it non-clickable
+  zIndex: 40,
+};
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-2 rounded-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg px-4 py-2 shadow-lg">
-        {navItems.map((item) => (
-          <motion.button
-            key={item.id}
-            onClick={() => handleNavClick(item.id)}
-            whileTap={{ scale: 0.9 }}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
-              active === item.id || item.id === "home"
-                ? "bg-blue-100 dark:bg-blue-800/40 text-blue-700 dark:text-blue-200"
+    <>
+      {/* ✨ Full-width blur background with CSS variables */}
+      <div 
+        className="fixed top-0 left-0 right-0 z-40"
+        style={blurHeaderStyles}
+      />
+      
+      {/* Header container */}
+      <div className="fixed top-0 left-0 w-full z-50 flex justify-center">
+        {/* Actual header */}
+        <div className="mt-4 flex items-center gap-2 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl px-4 py-2 shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+          {navItems.map((item) => (
+            <motion.button
+              key={item.id}
+              onClick={() => handleNavClick(item.id)}
+              whileTap={{ scale: 0.9 }}
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+                active === item.id
+                  ? "bg-blue-100 dark:bg-cyan-900 text-blue-800 dark:text-blue-200"
                 : "text-gray-700 dark:text-gray-300"
-            } hover:bg-blue-100 dark:hover:bg-blue-800/40 hover:text-blue-700 dark:hover:text-blue-200`}
+              } hover:bg-blue-100 dark:hover:bg-blue-800/40 hover:text-blue-700 dark:hover:text-blue-200`}
+            >
+              {item.icon}
+              {item.label}
+            </motion.button>
+          ))}
+
+          <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2" />
+
+          <motion.button
+            whileTap={{ rotate: 180, scale: 0.9 }}
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
           >
-            {item.icon}
-            {item.label}
+            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </motion.button>
-        ))}
-
-        <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2" />
-
-        <motion.button
-          whileTap={{ rotate: 180, scale: 0.9 }}
-          onClick={toggleTheme} // Use toggleTheme from context
-          className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-        </motion.button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
