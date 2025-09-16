@@ -479,7 +479,7 @@ export default function FloatingHeader() {
                 active === item.id
                   ? "bg-blue-100 dark:bg-cyan-900 text-blue-800 dark:text-blue-200"
                 : "text-gray-700 dark:text-gray-300"
-              } hover:bg-blue-100 dark:hover:bg-blue-800/40 hover:text-blue-700 dark:hover:text-blue-200`}
+              } hover:bg-blue-100 dark:hover:bg-cyan-900 hover:text-blue-700 dark:hover:text-blue-200`}
             >
               {item.icon}
               {item.label}

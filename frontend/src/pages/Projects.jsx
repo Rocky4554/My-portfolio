@@ -2896,306 +2896,305 @@
 
 //////////////////
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import {
-  Github,
-  ExternalLink,
-  ShoppingCart,
-  Smartphone,
-  Globe,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+// import React, { useState, useEffect } from "react";
+// import { motion } from "framer-motion";
+// import {
+//   Github,
+//   ExternalLink,
+//   ShoppingCart,
+//   Smartphone,
+//   Globe,
+//   ChevronLeft,
+//   ChevronRight,
+// } from "lucide-react";
 
-// Enhanced projects with full details
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    subtitle: "Full-Stack Solution",
-    description:
-      "A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, shopping cart, and admin dashboard.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    live: "https://your-live-demo.com",
-    github: "https://github.com/your-username/ecommerce",
-    image:
-      "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    icon: <ShoppingCart className="h-6 w-6" />,
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    subtitle: "Collaborative Solution",
-    description:
-      "A collaborative task management application with real-time updates, team collaboration, and project tracking capabilities.",
-    tech: ["React", "Firebase", "Tailwind CSS", "Socket.io"],
-    live: "https://your-live-demo.com",
-    github: "https://github.com/your-username/taskapp",
-    image:
-      "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800",
-    icon: <Smartphone className="h-6 w-6" />,
-  },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    subtitle: "Data Visualization",
-    description:
-      "A beautiful weather dashboard with location-based forecasts, interactive maps, and weather data visualization.",
-    tech: ["React", "TypeScript", "Weather API", "Chart.js"],
-    live: "https://your-live-demo.com",
-    github: "https://github.com/your-username/weather",
-    image:
-      "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
-    icon: <Globe className="h-6 w-6" />,
-  },
-];
+// // Enhanced projects with full details
+// const projects = [
+//   {
+//     id: 1,
+//     title: "E-Commerce Platform",
+//     subtitle: "Full-Stack Solution",
+//     description:
+//       "A full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, shopping cart, and admin dashboard.",
+//     tech: ["React", "Node.js", "MongoDB", "Stripe"],
+//     live: "https://your-live-demo.com",
+//     github: "https://github.com/your-username/ecommerce",
+//     image:
+//       "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     icon: <ShoppingCart className="h-6 w-6" />,
+//   },
+//   {
+//     id: 2,
+//     title: "Task Management App",
+//     subtitle: "Collaborative Solution",
+//     description:
+//       "A collaborative task management application with real-time updates, team collaboration, and project tracking capabilities.",
+//     tech: ["React", "Firebase", "Tailwind CSS", "Socket.io"],
+//     live: "https://your-live-demo.com",
+//     github: "https://github.com/your-username/taskapp",
+//     image:
+//       "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     icon: <Smartphone className="h-6 w-6" />,
+//   },
+//   {
+//     id: 3,
+//     title: "Weather Dashboard",
+//     subtitle: "Data Visualization",
+//     description:
+//       "A beautiful weather dashboard with location-based forecasts, interactive maps, and weather data visualization.",
+//     tech: ["React", "TypeScript", "Weather API", "Chart.js"],
+//     live: "https://your-live-demo.com",
+//     github: "https://github.com/your-username/weather",
+//     image:
+//       "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
+//     icon: <Globe className="h-6 w-6" />,
+//   },
+// ];
 
-const Projects = () => {
-  const [selected, setSelected] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
-  const selectedIndex = projects.findIndex((p) => p.id === selected);
-  const selectedProject = projects[selectedIndex];
+// const Projects = () => {
+//   const [selected, setSelected] = useState(1);
+//   const [isHovered, setIsHovered] = useState(false);
+//   const selectedIndex = projects.findIndex((p) => p.id === selected);
+//   const selectedProject = projects[selectedIndex];
 
-  // Auto-scroll every 4s (only when not hovered)
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      handleNext();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [isHovered]);
+//   // Auto-scroll every 4s (only when not hovered)
+//   useEffect(() => {
+//     if (isHovered) return;
+//     const interval = setInterval(() => {
+//       handleNext();
+//     }, 4000);
+//     return () => clearInterval(interval);
+//   }, [isHovered]);
 
-  const handleNext = () => {
-    setSelected((prev) => {
-      const currentIndex = projects.findIndex((p) => p.id === prev);
-      const nextIndex = (currentIndex + 1) % projects.length;
-      return projects[nextIndex].id;
-    });
-  };
+//   const handleNext = () => {
+//     setSelected((prev) => {
+//       const currentIndex = projects.findIndex((p) => p.id === prev);
+//       const nextIndex = (currentIndex + 1) % projects.length;
+//       return projects[nextIndex].id;
+//     });
+//   };
 
-  const handlePrev = () => {
-    setSelected((prev) => {
-      const currentIndex = projects.findIndex((p) => p.id === prev);
-      const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
-      return projects[prevIndex].id;
-    });
-  };
+//   const handlePrev = () => {
+//     setSelected((prev) => {
+//       const currentIndex = projects.findIndex((p) => p.id === prev);
+//       const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+//       return projects[prevIndex].id;
+//     });
+//   };
 
-  return (
-    <section
-      id="projects"
-      className="min-h-screen pt-32 flex flex-col items-center justify-center bg-white dark:bg-black"
-    >
-      {/* Title at the top */}
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold mb-16 text-center text-black dark:text-white"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-        My Projects
-      </motion.h2>
+//   return (
+//     <section
+//       id="projects"
+//       className="min-h-screen pt-32 flex flex-col items-center justify-center bg-white dark:bg-black"
+//     >
+//       {/* Title at the top */}
+//       <motion.h2
+//         className="text-4xl md:text-5xl font-bold mb-16 text-center text-black dark:text-white"
+//         initial={{ opacity: 0, y: -30 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.7, ease: "easeOut" }}
+//       >
+//         My Projects
+//       </motion.h2>
 
-      <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center gap-20">
-        {/* Carousel - LEFT side */}
-        <div
-          className="w-full lg:w-1/2 flex justify-center relative"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <div className="relative w-full max-w-[500px] h-[450px] flex items-center justify-center">
-            {projects.map((project, index) => {
-              let offset = index - selectedIndex;
-              const half = Math.floor(projects.length / 2);
-              if (offset > half) offset -= projects.length;
-              if (offset < -half) offset += projects.length;
+//       <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center gap-30">
+//         {/* Carousel - LEFT side */}
+//         <div
+//           className="w-full lg:w-1/2 flex justify-center relative"
+//           onMouseEnter={() => setIsHovered(true)}
+//           onMouseLeave={() => setIsHovered(false)}
+//         >
+//           <div className="relative w-full max-w-[500px] h-[450px] flex items-center justify-center">
+//             {projects.map((project, index) => {
+//               let offset = index - selectedIndex;
+//               const half = Math.floor(projects.length / 2);
+//               if (offset > half) offset -= projects.length;
+//               if (offset < -half) offset += projects.length;
 
-              const x = offset * 220; // space between cards
-              const isCenter = offset === 0;
+//               const x = offset * 220; // space between cards
+//               const isCenter = offset === 0;
 
-              return (
-                <motion.div
-                  key={project.id}
-                  onClick={() => setSelected(project.id)}
-                  className="absolute w-4/5 h-4/5 rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
-                  initial={false}
-                  animate={{
-                    x,
-                    scale: isCenter ? 1 : 0.75,
-                    opacity: isCenter ? 1 : 0.4,
-                    filter: isCenter ? "brightness(100%)" : "brightness(70%)",
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 160,
-                    damping: 22,
-                  }}
-                  style={{ zIndex: 10 - Math.abs(offset) }}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                  />
+//               return (
+//                 <motion.div
+//                   key={project.id}
+//                   onClick={() => setSelected(project.id)}
+//                   className="absolute w-4/5 h-4/5 rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
+//                   initial={false}
+//                   animate={{
+//                     x,
+//                     scale: isCenter ? 1 : 0.75,
+//                     opacity: isCenter ? 1 : 0.4,
+//                     filter: isCenter ? "brightness(100%)" : "brightness(70%)",
+//                   }}
+//                   transition={{
+//                     type: "spring",
+//                     stiffness: 160,
+//                     damping: 22,
+//                   }}
+//                   style={{ zIndex: 10 - Math.abs(offset) }}
+//                 >
+//                   <img
+//                     src={project.image}
+//                     alt={project.title}
+//                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+//                   />
 
-                  {/* Overlay for center card */}
-                  {isCenter && (
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                    >
-                      <div className="text-center text-white">
-                        <h4 className="text-lg font-semibold">
-                          {project.title}
-                        </h4>
-                        <p className="text-sm text-white/80">
-                          {project.subtitle}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </motion.div>
-              );
-            })}
+//                   {/* Overlay for center card */}
+//                   {isCenter && (
+//                     <motion.div
+//                       className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-4"
+//                       initial={{ opacity: 0 }}
+//                       animate={{ opacity: 1 }}
+//                       exit={{ opacity: 0 }}
+//                       transition={{ duration: 0.4, ease: "easeOut" }}
+//                     >
+//                       <div className="text-center text-white">
+//                         <h4 className="text-lg font-semibold">
+//                           {project.title}
+//                         </h4>
+//                         <p className="text-sm text-white/80">
+//                           {project.subtitle}
+//                         </p>
+//                       </div>
+//                     </motion.div>
+//                   )}
+//                 </motion.div>
+//               );
+//             })}
 
-            {/* Navigation Buttons */}
-            {/* <div className="absolute bottom-4 flex gap-6">
-              <button
-                onClick={handlePrev}
-                className="p-3 bg-black/60 hover:bg-black/80 text-white rounded-full shadow-lg transition"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="p-3 bg-black/60 hover:bg-black/80 text-white rounded-full shadow-lg transition"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
-            </div> */}
+//             {/* Navigation Buttons */}
+//             {/* <div className="absolute bottom-4 flex gap-6">
+//               <button
+//                 onClick={handlePrev}
+//                 className="p-3 bg-black/60 hover:bg-black/80 text-white rounded-full shadow-lg transition"
+//               >
+//                 <ChevronLeft className="h-5 w-5" />
+//               </button>
+//               <button
+//                 onClick={handleNext}
+//                 className="p-3 bg-black/60 hover:bg-black/80 text-white rounded-full shadow-lg transition"
+//               >
+//                 <ChevronRight className="h-5 w-5" />
+//               </button>
+//             </div> */}
 
-           {/* Navigation buttons */}
-<div className="flex justify-center gap-8 mt-10">
-  <button
-    onClick={handlePrev}
-    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md 
-               hover:scale-110 hover:shadow-lg transition flex items-center justify-center"
-  >
-    <ChevronLeft className="w-6 h-6 text-gray-800 dark:text-white" />
-  </button>
-  <button
-    onClick={handleNext}
-    className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md 
-               hover:scale-110 hover:shadow-lg transition flex items-center justify-center"
-  >
-    <ChevronRight className="w-6 h-6 text-gray-800 dark:text-white" />
-  </button>
-</div>
+//             {/* Navigation buttons */}
+//             <div className="flex justify-center gap-8 mt-10">
+//               <button
+//                 onClick={handlePrev}
+//                 className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md
+//               hover:scale-110 hover:shadow-lg transition flex items-center justify-center"
+//               >
+//                 <ChevronLeft className="w-6 h-6 text-gray-800 dark:text-white" />
+//               </button>
+//               <button
+//                 onClick={handleNext}
+//                 className="p-3 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md
+//               hover:scale-110 hover:shadow-lg transition flex items-center justify-center"
+//               >
+//                 <ChevronRight className="w-6 h-6 text-gray-800 dark:text-white" />
+//               </button>
+//             </div>
+//           </div>
+//         </div>
 
-          </div>
-        </div>
+//         {/* Project Details - RIGHT side */}
+//         <motion.div
+//           className="w-full lg:w-1/2"
+//           initial={{ opacity: 0, x: 50 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           transition={{ duration: 0.6, ease: "easeOut" }}
+//         >
+//           {selectedProject && (
+//             <motion.div
+//               key={selectedProject.id}
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, ease: "easeOut" }}
+//               className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl
+//                         border border-gray-300 dark:border-white/20
+//                         text-black dark:text-white"
+//             >
+//               {/* Project Icon and Title */}
+//               <div className="flex items-center gap-3 mb-4">
+//                 <div className="p-2 bg-gray-200 dark:bg-white/20 rounded-lg">
+//                   {selectedProject.icon}
+//                 </div>
+//                 <div>
+//                   <h3 className="text-2xl font-bold">
+//                     {selectedProject.title}
+//                   </h3>
+//                   <p className="text-gray-600 dark:text-white/80">
+//                     {selectedProject.subtitle}
+//                   </p>
+//                 </div>
+//               </div>
 
-        {/* Project Details - RIGHT side */}
-        <motion.div
-          className="w-full lg:w-1/2"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {selectedProject && (
-            <motion.div
-              key={selectedProject.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl 
-                         border border-gray-300 dark:border-white/20 
-                         text-black dark:text-white"
-            >
-              {/* Project Icon and Title */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-gray-200 dark:bg-white/20 rounded-lg">
-                  {selectedProject.icon}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">
-                    {selectedProject.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-white/80">
-                    {selectedProject.subtitle}
-                  </p>
-                </div>
-              </div>
+//               {/* Description */}
+//               <p className="text-gray-700 dark:text-white/90 mb-6 leading-relaxed">
+//                 {selectedProject.description}
+//               </p>
 
-              {/* Description */}
-              <p className="text-gray-700 dark:text-white/90 mb-6 leading-relaxed">
-                {selectedProject.description}
-              </p>
+//               {/* Tech Stack */}
+//               <div className="mb-6">
+//                 <h4 className="text-sm font-semibold mb-3 text-gray-600 dark:text-white/80">
+//                   Tech Stack
+//                 </h4>
+//                 <div className="flex flex-wrap gap-2">
+//                   {selectedProject.tech.map((tech, index) => (
+//                     <span
+//                       key={index}
+//                       className="px-3 py-1 text-sm
+//                                 bg-gray-100 dark:bg-white/20 backdrop-blur-sm
+//                                 text-black dark:text-white
+//                                 rounded-full border border-gray-300 dark:border-white/30"
+//                     >
+//                       {tech}
+//                     </span>
+//                   ))}
+//                 </div>
+//               </div>
 
-              {/* Tech Stack */}
-              <div className="mb-6">
-                <h4 className="text-sm font-semibold mb-3 text-gray-600 dark:text-white/80">
-                  Tech Stack
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tech.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-sm 
-                                 bg-gray-100 dark:bg-white/20 backdrop-blur-sm 
-                                 text-black dark:text-white 
-                                 rounded-full border border-gray-300 dark:border-white/30"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+//               {/* Action Buttons */}
+//               <div className="flex gap-4">
+//                 <motion.a
+//                   whileHover={{ scale: 1.05 }}
+//                   whileTap={{ scale: 0.95 }}
+//                   href={selectedProject.live}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="flex items-center gap-2 px-6 py-3
+//                             bg-gray-700/80 hover:bg-gray-600
+//                             rounded-lg shadow-lg
+//                             text-white font-medium transition-colors backdrop-blur-sm"
+//                 >
+//                   <ExternalLink className="h-4 w-4" />
+//                   Live Demo
+//                 </motion.a>
+//                 <motion.a
+//                   whileHover={{ scale: 1.05 }}
+//                   whileTap={{ scale: 0.95 }}
+//                   href={selectedProject.github}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="flex items-center gap-2 px-6 py-3
+//                             bg-gray-700/80 hover:bg-gray-600
+//                             rounded-lg shadow-lg
+//                             text-white font-medium transition-colors backdrop-blur-sm"
+//                 >
+//                   <Github className="h-4 w-4" />
+//                   GitHub
+//                 </motion.a>
+//               </div>
+//             </motion.div>
+//           )}
+//         </motion.div>
+//       </div>
+//     </section>
+//   );
+// };
 
-              {/* Action Buttons */}
-              <div className="flex gap-4">
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={selectedProject.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 
-                             bg-gray-700/80 hover:bg-gray-600 
-                             rounded-lg shadow-lg 
-                             text-white font-medium transition-colors backdrop-blur-sm"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Live Demo
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={selectedProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 
-                             bg-gray-700/80 hover:bg-gray-600 
-                             rounded-lg shadow-lg 
-                             text-white font-medium transition-colors backdrop-blur-sm"
-                >
-                  <Github className="h-4 w-4" />
-                  GitHub
-                </motion.a>
-              </div>
-            </motion.div>
-          )}
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-export default Projects;
+// export default Projects;
 
 //// arrow buttons //////////////////
 
@@ -3468,3 +3467,396 @@ export default Projects;
 // };
 
 // export default Projects;
+///////////
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  Github,
+  ExternalLink,
+  ShoppingCart,
+  Smartphone,
+  Globe,
+  ChevronLeft,
+  ChevronRight,
+  Wallet ,
+  Image ,
+  MessageCircleMore ,
+  TvMinimalPlay 
+} from "lucide-react";
+import { ShineBorder } from "@/components/ui/shine-border";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
+
+// Enhanced projects with full details and tech colors
+const projects = [
+  {
+    id: 1,
+    title: "CashClarity",
+    subtitle: "Ai Finance Assistant",
+    description:
+      "An intelligent AI-powered finance tracking application that helps users manage their finances with smart insights and automation.",
+    tech: [
+      {
+        name: "Next js",
+        color: "hover:shadow-cyan-400/50 hover:text-cyan-400",
+      },
+      {
+        name: "Tailwind CSS",
+        color: "hover:shadow-green-500/50 hover:text-green-500",
+      },
+      {
+        name: "PostgreSQL",
+        color: "hover:shadow-green-400/50 hover:text-green-400",
+      },
+      {
+        name: "Stripe",
+        color: "hover:shadow-purple-500/50 hover:text-purple-500",
+      },
+      {
+        name: "Inngest  ",
+        color: "hover:shadow-purple-500/50 hover:text-purple-500",
+      },
+      {
+        name: "Clerk ",
+        color: "hover:shadow-purple-500/50 hover:text-purple-500",
+      },
+      {
+        name: "Prisma ",
+        color: "hover:shadow-purple-500/50 hover:text-purple-500",
+      },
+    ],
+    live: "https://cash-clarity-orpin.vercel.app/",
+    github: "https://github.com/Rocky4554/CashClarity",
+    image: "images/CashClarity.png",
+    icon: <Wallet className="h-5 w-5" />,
+  },
+  {
+    id: 2,
+    title: "PicHub",
+    subtitle: "AI Image Generation App",
+    description:
+      "A fullstack AI-powered image generation platform that allows users to create, optimize, and manage images seamlessly.",
+    tech: [
+      { name: "React", color: "hover:shadow-cyan-400/50 hover:text-cyan-400" },
+      {
+        name: "Express.js",
+        color: "hover:shadow-orange-400/50 hover:text-orange-400",
+      },
+      {
+        name: "Tailwind CSS",
+        color: "hover:shadow-sky-400/50 hover:text-sky-400",
+      },
+      {
+        name: "Mongo DB",
+        color: "hover:shadow-gray-400/50 hover:text-gray-400",
+      },
+      {
+        name: "ImageKit",
+        color: "hover:shadow-gray-400/50 hover:text-gray-400",
+      },
+      {
+        name: "Gemini API",
+        color: "hover:shadow-gray-400/50 hover:text-gray-400",
+      },
+      {
+        name: "clerk",
+        color: "hover:shadow-gray-400/50 hover:text-gray-400",
+      },
+    ],
+    live: "https://pic-hub-jab2.vercel.app/",
+    github: "https://github.com/Rocky4554/PicHub",
+    image: "images/PicHub.png",
+    icon: <Image className="h-5 w-5" />,
+  },
+  {
+    id: 3,
+    title: "Connectify",
+    subtitle: "Real-time Messaging and Video App",
+    description:
+      "Instant chat with typing indicators and emoji reactions for dynamic conversations.1-on-1 and group video calls powered by Steam with screen sharing and recording capabilities.",
+    tech: [
+      { name: "React", color: "hover:shadow-cyan-400/50 hover:text-cyan-400" },
+      {
+        name: "Express.js",
+        color: "hover:shadow-blue-400/50 hover:text-blue-400",
+      },
+       {
+        name: "Mongo DB",
+        color: "hover:shadow-yellow-400/50 hover:text-yellow-400",
+      },
+      {
+        name: "Tailwind CSS",
+        color: "hover:shadow-yellow-400/50 hover:text-yellow-400",
+      },
+      {
+        name: "Steam API",
+        color: "hover:shadow-pink-400/50 hover:text-pink-400",
+      },
+    ],
+    live: "https://streamify-eight-liart.vercel.app/",
+    github: "https://github.com/Rocky4554/Connectify",
+    image:
+      "images/Connectify.png",
+    icon: <MessageCircleMore className="h-5 w-5" />,
+  },
+];
+
+const Projects = () => {
+  const [selected, setSelected] = useState(1);
+  const [isHovered, setIsHovered] = useState(false);
+  const selectedIndex = projects.findIndex((p) => p.id === selected);
+  const selectedProject = projects[selectedIndex];
+
+  // Auto-scroll every 4s (only when not hovered)
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const handleNext = () => {
+    setSelected((prev) => {
+      const currentIndex = projects.findIndex((p) => p.id === prev);
+      const nextIndex = (currentIndex + 1) % projects.length;
+      return projects[nextIndex].id;
+    });
+  };
+
+  const handlePrev = () => {
+    setSelected((prev) => {
+      const currentIndex = projects.findIndex((p) => p.id === prev);
+      const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+      return projects[prevIndex].id;
+    });
+  };
+
+  return (
+    <section
+      id="projects"
+      className="h-screen py-8 sm:py-12 lg:py-16 flex flex-col items-center justify-center bg-white dark:bg-black"
+    >
+      {/* Title at the top */}
+      <motion.h2
+        className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center text-black dark:text-white px-4"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        My Projects
+      </motion.h2>
+
+      <div className="w-full max-w-7xl flex flex-col lg:flex-row items-center lg:gap-15 px-4">
+        {/* Carousel - LEFT side */}
+        <motion.div
+          className="w-full lg:w-3/5 flex flex-col items-center relative"
+          initial={{ opacity: 0, x: -100, scale: 0.8 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="relative w-full max-w-[350px] sm:max-w-[400px] h-[250px] sm:h-[300px] flex items-center justify-center mb-4">
+            {projects.map((project, index) => {
+              let offset = index - selectedIndex;
+              const half = Math.floor(projects.length / 2);
+              if (offset > half) offset -= projects.length;
+              if (offset < -half) offset += projects.length;
+
+              const x = offset * (window.innerWidth < 640 ? 140 : 180); // responsive spacing
+              const isCenter = offset === 0;
+
+              return (
+                <motion.div
+                  key={project.id}
+                  onClick={() => setSelected(project.id)}
+                  // className="absolute w-4/5 h-full rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
+                  className="absolute w-7/5 aspect-[19/9] rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
+                  initial={false}
+                  animate={{
+                    x,
+                    scale: isCenter ? 1 : 0.75,
+                    opacity: isCenter ? 1 : 0.4,
+                    filter: isCenter ? "brightness(100%)" : "brightness(70%)",
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 160,
+                    damping: 22,
+                  }}
+                  whileHover={isCenter ? { scale: 1.05 } : {}}
+                  style={{ zIndex: 10 - Math.abs(offset) }}
+                >
+                  {/* <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  /> */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                  />
+
+                  {/* Overlay for center card */}
+                  {isCenter && (
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-3"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    >
+                      <div className="text-center text-white">
+                        <h4 className="text-sm sm:text-base font-semibold">
+                          {project.title}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-white/80">
+                          {project.subtitle}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Navigation buttons */}
+          <motion.div
+            className="flex justify-center gap-4 sm:gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <motion.button
+              onClick={handlePrev}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md 
+               hover:shadow-lg transition flex items-center justify-center"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800 dark:text-white" />
+            </motion.button>
+            <motion.button
+              onClick={handleNext}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md 
+               hover:shadow-lg transition flex items-center justify-center"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-800 dark:text-white" />
+            </motion.button>
+          </motion.div>
+        </motion.div>
+
+        {/* Project Details - RIGHT side */}
+        <motion.div
+          className="w-full lg:w-2/5"
+          initial={{ opacity: 0, x: 100, scale: 0.8 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {selectedProject && (
+            <CardSpotlight className="bg-white dark:bg-white/10 rounded-2xl shadow-2xl border border-gray-300 dark:border-white/20 text-black dark:text-white">
+              <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
+              <motion.div
+                key={selectedProject.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                // className="bg-white dark:bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-6 shadow-2xl
+                //            border border-gray-300 dark:border-white/20
+                //            text-black dark:text-white max-h-[350px] sm:max-h-[400px] lg:max-h-[450px] overflow-hidden"
+              >
+                {/* Project Icon and Title - Centered */}
+                <div className="flex items-center justify-center text-center mb-3 relative z-30">
+                  <div className="p-2 bg-gray-200 dark:bg-white/20 rounded-lg mr-3">
+                    {selectedProject.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold">
+                      {selectedProject.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-white/80">
+                      {selectedProject.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Description - Centered */}
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-white/90 mb-3 leading-relaxed text-center px-2 relative z-30">
+                  {selectedProject.description}
+                </p>
+
+                {/* Tech Stack - Centered */}
+                <div className="mb-3 sm:mb-4 relative z-30">
+                  <h4 className="text-xs font-semibold mb-2 text-gray-600 dark:text-white/80 text-center">
+                    Tech Stack
+                  </h4>
+                  <div className="flex flex-wrap gap-1 sm:gap-2 justify-center px-2">
+                    {selectedProject.tech.map((tech, index) => (
+                      <motion.span
+                        key={index}
+                        whileHover={{
+                          scale: 1.1,
+                          boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className={`px-2 py-1 text-xs 
+                                 bg-gray-100 dark:bg-white/20 backdrop-blur-sm 
+                                 text-black dark:text-white 
+                                 rounded-full border border-gray-300 dark:border-white/30
+                                 cursor-pointer transition-all duration-200 ${
+                                   typeof tech === "object" ? tech.color : ""
+                                 }`}
+                      >
+                        {typeof tech === "object" ? tech.name : tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons - Centered */}
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center relative z-30">
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={selectedProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-2 
+                             bg-gray-700/80 hover:bg-gray-600 
+                             rounded-lg shadow-lg 
+                             text-white text-xs sm:text-sm font-medium transition-colors backdrop-blur-sm"
+                  >
+                    <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+                    Live Demo
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-2 
+                             bg-gray-700/80 hover:bg-gray-600 
+                             rounded-lg shadow-lg 
+                             text-white text-xs sm:text-sm font-medium transition-colors backdrop-blur-sm"
+                  >
+                    <Github className="h-3 w-3 sm:h-4 sm:w-4" />
+                    GitHub
+                  </motion.a>
+                </div>
+              </motion.div>
+            </CardSpotlight>
+          )}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

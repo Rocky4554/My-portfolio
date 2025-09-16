@@ -26,7 +26,7 @@ const AnimatedTitle = () => {
   //   </h1>
   // );
 
-  <h1 className="text-white font-playfair leading-[0.85] perspective">
+  <h1 className="text-rose-500 dark:text-white font-playfair leading-[0.85] perspective">
   <span className="word inline-block animate-word transform -translate-x-8 text-[6rem]">
     Raunak
     <span className="superscript relative align-text-top"></span>

@@ -355,7 +355,7 @@ const About = () => {
             <div className="relative">
               <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="https://ik.imagekit.io/raunakImageKIt/IMG_20220909_204647.jpg?updatedAt=1758063110443"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />

@@ -633,7 +633,8 @@ import { FileText } from "lucide-react";
 import AnimatedTitle from "../components/AnimatedTitle";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
-import { RainbowButton } from "../components/ui/rainbow-button"
+import { RainbowButton } from "../components/ui/rainbow-button";
+import { MorphingText } from "@/components/ui/morphing-text";
 
 import SplitText from "../components/SplitText";
 
@@ -723,9 +724,9 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="font-mono text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-4 my-4"
+            className="font-mono text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-2 my-1 mt-6"
           >
-            Hello, I'm
+            {/* Hello, I'm */}
           </motion.p>
 
           {/* <SplitText
@@ -756,16 +757,16 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="font-serif font-bold text-xl md:text-4xl text-gray-700 dark:text-blue-400 font-light mb-8 py-1"
+            className="mb-1 "
           >
-            Frontend Developer
+            <MorphingText texts={["Frontend Developer", "Problem Solver"]} />
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-5 max-w-2xl mx-auto"
           >
             I create exceptional digital experiences that combine beautiful
             design with powerful functionality
@@ -777,7 +778,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
             onClick={() => scrollToSection("about")}
-            className="flex justify-center mb-12"
+            className="flex justify-center mb-4"
           >
             <RainbowButton>Read About Me</RainbowButton>
           </motion.div>
@@ -787,7 +788,6 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-             
           >
             {/* View My Work Button */}
             {/* <motion.button
@@ -849,15 +849,21 @@ const Hero = () => {
             {/* Download Resume Button*/}
             <InteractiveHoverButton
               onClick={() => {
-                const link = document.createElement("a");
-                link.href = "/Raunak_Kumar_Resume.pdf"; // Make sure this file is in /public
-                link.download = "Raunak_Kumar_Resume.pdf";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+                try {
+                  window.open("/RAUNAK_KUMAR_RESUME.pdf", "_blank");
+                } catch (error) {
+                  console.error("Could not open resume:", error);
+                  // Fallback to download
+                  const link = document.createElement("a");
+                  link.href = "/Raunak_Kumar_Resume.pdf";
+                  link.download = "Raunak_Kumar_Resume.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }
               }}
             >
-              <span>Download Resume</span>
+              <span>View Resume</span>
             </InteractiveHoverButton>
 
             {/* <motion.button
