@@ -2,23 +2,24 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/src/api/server.js",
+      "src": "src/api/index.js",
       "use": "@vercel/node"
     },
     {
-      "src": "backend/dist/**/*",
+      "src": "dist/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "src/api/index.js" },
+    { "src": "/assets/(.*)", "dest": "dist/assets/$1" },
     {
-      "src": "/api/(.*)",
-      "dest": "backend/src/api/server.js"
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|json|wasm))",
+      "dest": "dist/$1"
     },
-    {
-      "src": "/(.*)",
-      "dest": "backend/dist/$1"
-    }
+    { "src": "/(.*)", "dest": "dist/index.html" }
   ],
-  "buildCommand": "npm run build"
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

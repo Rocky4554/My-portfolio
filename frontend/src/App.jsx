@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { ThemeProvider } from './providers/ThemeProvider';
 import Header from './pages/Header';
-import Hero from './pages/Hero';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Skills from './pages/Skills';
-import Contact from './pages/Contact';
 import Footer from './pages/Footer';
+
+// Lazy load big sections
+const Hero = lazy(() => import('./pages/Hero'));
+const About = lazy(() => import('./pages/About'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Skills = lazy(() => import('./pages/Skills'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 function App() {
   return (
@@ -14,11 +16,13 @@ function App() {
       <div className="min-h-screen bg-white transition-colors duration-300">
         <Header />
         <main>
-          <Hero />
-          <About />
-          <Projects />
-          <Skills />
-          <Contact />
+          <Suspense fallback={<div className="text-center p-10">Loading...</div>}>
+            <Hero />
+            <About />
+            <Projects />
+            <Skills />
+            <Contact />
+          </Suspense>
         </main>
         <Footer />
       </div>
