@@ -1,25 +1,18 @@
 {
-  "version": 2,
-  "builds": [
+  "functions": {
+    "backend/src/api/index.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "routes": [
     {
-      "src": "src/api/index.js",
-      "use": "@vercel/node"
+      "src": "/api/(.*)",
+      "dest": "/backend/src/api/index.js"
     },
     {
-      "src": "dist/**/*",
-      "use": "@vercel/static"
+      "src": "/(.*)",
+      "dest": "/backend/dist/$1"
     }
   ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "src/api/index.js" },
-    { "src": "/assets/(.*)", "dest": "dist/assets/$1" },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|json|wasm))",
-      "dest": "dist/$1"
-    },
-    { "src": "/(.*)", "dest": "dist/index.html" }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "outputDirectory": "backend/dist"
 }
