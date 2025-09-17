@@ -371,6 +371,283 @@
 // }
 
 ///////////////
+// import { useState, useEffect } from "react";
+// import { motion } from "framer-motion";
+// import {
+//   Home,
+//   User,
+//   LayoutGrid,
+//   FileText,
+//   Image as ImageIcon,
+//   Sun,
+//   Moon,
+// } from "lucide-react";
+// import { useTheme } from "../hooks/useTheme";
+
+// const navItems = [
+//   { id: "home", label: "Home", icon: <Home className="h-4 w-4" /> },
+//   { id: "about", label: "About", icon: <User className="h-4 w-4" /> },
+//   { id: "projects", label: "Projects", icon: <LayoutGrid className="h-4 w-4" /> },
+//   { id: "skills", label: "Skills", icon: <FileText className="h-4 w-4" /> },
+//   { id: "contact", label: "Contacts", icon: <ImageIcon className="h-4 w-4" /> },
+// ];
+
+// export default function FloatingHeader() {
+//   const [active, setActive] = useState("home");
+//   const { isDark, toggleTheme } = useTheme();
+
+//   const handleNavClick = (id) => {
+//     setActive(id);
+//     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+//   };
+
+//   // 🔥 Scroll spy
+//   useEffect(() => {
+//     const sections = navItems.map((item) => document.getElementById(item.id));
+
+//     const observer = new IntersectionObserver(
+//       (entries) => {
+//         entries.forEach((entry) => {
+//           if (entry.isIntersecting) {
+//             setActive(entry.target.id);
+//           }
+//         });
+//       },
+//       {
+//         threshold: 0.1,
+//         rootMargin: "-50px 0px -50% 0px",
+//       }
+//     );
+
+//     sections.forEach((section) => {
+//       if (section) observer.observe(section);
+//     });
+
+//     return () => {
+//       sections.forEach((section) => {
+//         if (section) observer.unobserve(section);
+//       });
+//     };
+//   }, []);
+
+//   // const blurHeaderStyles = {
+//   //   height: "var(--static-space-80, 5rem)",
+//   //   background: `linear-gradient(
+//   //     var(--gradient-direction, 180deg),
+//   //     color-mix(in srgb, var(--base-color) 60%, transparent),
+//   //     color-mix(in srgb, var(--base-color) 30%, transparent),
+//   //     transparent
+//   //   )`,
+//   //   backdropFilter: "blur(12px)",
+//   //   "--static-space-80": "5rem",
+//   //   "--base-color": isDark ? "#111827" : "#ffffff",
+//   //   "--gradient-direction": "180deg",
+//   // };
+
+//   const blurHeaderStyles = {
+//   position: "fixed",
+//   top: 0,
+//   left: 0,
+//   right: 0,
+//   height: "2rem", // slightly bigger so blur shows below header
+//   background: isDark
+//     ? "linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), transparent)"
+//     : "linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6), transparent)",
+//   backdropFilter: "blur(16px)", // stronger blur
+//   WebkitBackdropFilter: "blur(16px)", // safari support
+//   pointerEvents: "none", // make it non-clickable
+//   zIndex: 40,
+// };
+//   return (
+//     <>
+//       {/* ✨ Full-width blur background with CSS variables */}
+//       <div 
+//         className="fixed top-0 left-0 right-0 z-40"
+//         style={blurHeaderStyles}
+//       />
+      
+//       {/* Header container */}
+//       <div className="fixed top-0 left-0 w-full z-50 flex justify-center">
+//         {/* Actual header */}
+//         <div className="mt-4 flex items-center gap-2 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl px-4 py-2 shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+//           {navItems.map((item) => (
+//             <motion.button
+//               key={item.id}
+//               onClick={() => handleNavClick(item.id)}
+//               whileTap={{ scale: 0.9 }}
+//               className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+//                 active === item.id
+//                   ? "bg-blue-100 dark:bg-cyan-900 text-blue-800 dark:text-blue-200"
+//                 : "text-gray-700 dark:text-gray-300"
+//               } hover:bg-blue-100 dark:hover:bg-cyan-900 hover:text-blue-700 dark:hover:text-blue-200`}
+//             >
+//               {item.icon}
+//               {item.label}
+//             </motion.button>
+//           ))}
+
+//           <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2" />
+
+//           <motion.button
+//             whileTap={{ rotate: 180, scale: 0.9 }}
+//             onClick={toggleTheme}
+//             className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+//           >
+//             {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+//           </motion.button>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+//////////////
+
+// import { useState, useEffect } from "react";
+// import { motion } from "framer-motion";
+// import {
+//   Home,
+//   User,
+//   LayoutGrid,
+//   FileText,
+//   Image as ImageIcon,
+//   Sun,
+//   Moon,
+// } from "lucide-react";
+// import { useTheme } from "../hooks/useTheme";
+
+// const navItems = [
+//   { id: "home", label: "Home", icon: <Home className="h-4 w-4" /> },
+//   { id: "about", label: "About", icon: <User className="h-4 w-4" /> },
+//   { id: "projects", label: "Projects", icon: <LayoutGrid className="h-4 w-4" /> },
+//   { id: "skills", label: "Skills", icon: <FileText className="h-4 w-4" /> },
+//   { id: "contact", label: "Contacts", icon: <ImageIcon className="h-4 w-4" /> },
+// ];
+
+// export default function FloatingHeader() {
+//   const [active, setActive] = useState("home");
+//   const { isDark, toggleTheme } = useTheme();
+
+//   const handleNavClick = (id) => {
+//     setActive(id);
+//     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+//   };
+
+//   // 🔧 Fixed Scroll spy
+//   useEffect(() => {
+//     // Wait for DOM to be ready
+//     const timer = setTimeout(() => {
+//       const sections = navItems
+//         .map((item) => document.getElementById(item.id))
+//         .filter(Boolean); // Remove null elements
+
+//       if (sections.length === 0) {
+//         console.warn("No sections found for scroll spy");
+//         return;
+//       }
+
+//       const observer = new IntersectionObserver(
+//         (entries) => {
+//           // Find the entry with the highest intersection ratio
+//           const visibleEntries = entries.filter(entry => entry.isIntersecting);
+          
+//           if (visibleEntries.length > 0) {
+//             // Sort by intersection ratio and position to get the most visible section
+//             const mostVisible = visibleEntries.reduce((prev, current) => {
+//               // Prioritize sections that are more visible
+//               if (current.intersectionRatio > prev.intersectionRatio) {
+//                 return current;
+//               }
+//               // If intersection ratios are similar, prioritize the one closer to top
+//               if (Math.abs(current.intersectionRatio - prev.intersectionRatio) < 0.1) {
+//                 return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
+//               }
+//               return prev;
+//             });
+            
+//             setActive(mostVisible.target.id);
+//           }
+//         },
+//         {
+//           // More forgiving threshold - section becomes active when 20% is visible
+//           threshold: [0, 0.2, 0.5, 0.8],
+//           // Adjusted root margin to account for fixed header
+//           rootMargin: "-80px 0px -60% 0px",
+//         }
+//       );
+
+//       sections.forEach((section) => {
+//         observer.observe(section);
+//       });
+
+//       return () => {
+//         sections.forEach((section) => {
+//           observer.unobserve(section);
+//         });
+//       };
+//     }, 100); // Small delay to ensure DOM is ready
+
+//     return () => clearTimeout(timer);
+//   }, []); // Remove navItems dependency to prevent re-running
+
+//   // ✅ Blur background for header
+//   const blurHeaderStyles = {
+//     position: "fixed",
+//     top: 0,
+//     left: 0,
+//     right: 0,
+//     height: "3.5rem", // match header height
+//     background: isDark
+//       ? "linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), transparent)"
+//       : "linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6), transparent)",
+//     backdropFilter: "blur(16px)",
+//     WebkitBackdropFilter: "blur(16px)",
+//     pointerEvents: "none", // not blocking clicks
+//     zIndex: 40,
+//   };
+
+//   return (
+//     <>
+//       {/* ✨ Full-width blur background */}
+//       <div className="fixed top-0 left-0 right-0 z-40" style={blurHeaderStyles} />
+
+//       {/* Header container */}
+//       <div className="fixed top-0 left-0 w-full z-50 flex justify-center">
+//         <div className="mt-2 flex items-center gap-2 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl px-4 py-2 shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+//           {navItems.map((item) => (
+//             <motion.button
+//               key={item.id}
+//               onClick={() => handleNavClick(item.id)}
+//               whileTap={{ scale: 0.9 }}
+//               className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+//                 active === item.id
+//                   ? "bg-blue-100 dark:bg-cyan-900 text-blue-800 dark:text-blue-200"
+//                   : "text-gray-700 dark:text-gray-300"
+//               } hover:bg-blue-100 dark:hover:bg-cyan-900 hover:text-blue-700 dark:hover:text-blue-200`}
+//             >
+//               {item.icon}
+//               {item.label}
+//             </motion.button>
+//           ))}
+
+//           <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2" />
+
+//           <motion.button
+//             whileTap={{ rotate: 180, scale: 0.9 }}
+//             onClick={toggleTheme}
+//             className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+//           >
+//             {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+//           </motion.button>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+
+/////////////debugging 
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -401,75 +678,159 @@ export default function FloatingHeader() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // 🔥 Scroll spy
+  // 🐛 DEBUG VERSION - with extensive logging
   useEffect(() => {
-    const sections = navItems.map((item) => document.getElementById(item.id));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "-50px 0px -50% 0px",
-      }
-    );
-
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        if (section) observer.unobserve(section);
+    console.log("🔍 Setting up scroll spy...");
+    
+    // Wait longer for DOM to be ready
+    const timer = setTimeout(() => {
+      console.log("🔍 Checking for sections...");
+      
+      // Debug: Check if sections exist
+      navItems.forEach(item => {
+        const element = document.getElementById(item.id);
+        console.log(`Section "${item.id}":`, element ? "✅ Found" : "❌ Missing");
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          console.log(`  Position: top=${rect.top}, height=${rect.height}`);
+        }
       });
-    };
+
+      const sections = navItems
+        .map((item) => document.getElementById(item.id))
+        .filter(Boolean);
+
+      if (sections.length === 0) {
+        console.error("❌ No sections found! Make sure your sections have the correct IDs:", 
+          navItems.map(item => item.id));
+        return;
+      }
+
+      console.log(`✅ Found ${sections.length} sections:`, sections.map(s => s.id));
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          console.log("📊 Intersection update:");
+          
+          entries.forEach(entry => {
+            console.log(`  ${entry.target.id}: ${entry.isIntersecting ? '👀' : '🙈'} visible=${Math.round(entry.intersectionRatio * 100)}%`);
+          });
+
+          const visibleEntries = entries.filter(entry => entry.isIntersecting);
+          console.log(`  ${visibleEntries.length} sections currently visible`);
+          
+          if (visibleEntries.length > 0) {
+            const mostVisible = visibleEntries.reduce((prev, current) => {
+              if (current.intersectionRatio > prev.intersectionRatio) {
+                return current;
+              }
+              if (Math.abs(current.intersectionRatio - prev.intersectionRatio) < 0.1) {
+                return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
+              }
+              return prev;
+            });
+            
+            console.log(`🎯 Setting active section: ${mostVisible.target.id}`);
+            setActive(mostVisible.target.id);
+          }
+        },
+        {
+          threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0],
+          rootMargin: "-100px 0px -50% 0px",
+        }
+      );
+
+      sections.forEach((section) => {
+        observer.observe(section);
+        console.log(`👁️ Observing section: ${section.id}`);
+      });
+
+      return () => {
+        console.log("🧹 Cleaning up scroll spy observers");
+        sections.forEach((section) => {
+          observer.unobserve(section);
+        });
+      };
+    }, 500); // Longer delay
+
+    return () => clearTimeout(timer);
   }, []);
 
-  // const blurHeaderStyles = {
-  //   height: "var(--static-space-80, 5rem)",
-  //   background: `linear-gradient(
-  //     var(--gradient-direction, 180deg),
-  //     color-mix(in srgb, var(--base-color) 60%, transparent),
-  //     color-mix(in srgb, var(--base-color) 30%, transparent),
-  //     transparent
-  //   )`,
-  //   backdropFilter: "blur(12px)",
-  //   "--static-space-80": "5rem",
-  //   "--base-color": isDark ? "#111827" : "#ffffff",
-  //   "--gradient-direction": "180deg",
-  // };
+  // Fallback: update active section via scroll position (helps during smooth/manual scroll)
+  useEffect(() => {
+    const headerOffsetPx = 100; // approximate header + padding height
+
+    const getSections = () =>
+      navItems
+        .map((item) => document.getElementById(item.id))
+        .filter(Boolean);
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const sections = getSections();
+        if (sections.length === 0) {
+          ticking = false;
+          return;
+        }
+
+        let bestId = null;
+        let bestScore = Infinity;
+        sections.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          // Only consider sections that are at least partially in view area
+          if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            const distanceFromAnchor = Math.abs(rect.top - headerOffsetPx);
+            if (distanceFromAnchor < bestScore) {
+              bestScore = distanceFromAnchor;
+              bestId = el.id;
+            }
+          }
+        });
+
+        if (bestId && bestId !== active) {
+          setActive(bestId);
+        }
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    // Initial sync
+    setTimeout(handleScroll, 0);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [active]);
+
+
 
   const blurHeaderStyles = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  height: "2rem", // slightly bigger so blur shows below header
-  background: isDark
-    ? "linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), transparent)"
-    : "linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6), transparent)",
-  backdropFilter: "blur(16px)", // stronger blur
-  WebkitBackdropFilter: "blur(16px)", // safari support
-  pointerEvents: "none", // make it non-clickable
-  zIndex: 40,
-};
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: "3.5rem",
+    background: isDark
+      ? "linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), transparent)"
+      : "linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6), transparent)",
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
+    pointerEvents: "none",
+    zIndex: 40,
+  };
+
   return (
     <>
-      {/* ✨ Full-width blur background with CSS variables */}
-      <div 
-        className="fixed top-0 left-0 right-0 z-40"
-        style={blurHeaderStyles}
-      />
-      
-      {/* Header container */}
+      <div className="fixed top-0 left-0 right-0 z-40" style={blurHeaderStyles} />
+
       <div className="fixed top-0 left-0 w-full z-50 flex justify-center">
-        {/* Actual header */}
-        <div className="mt-4 flex items-center gap-2 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl px-4 py-2 shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+        <div className="mt-2 flex items-center gap-2 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl px-4 py-2 shadow-lg border border-gray-200/50 dark:border-gray-700/50">
           {navItems.map((item) => (
             <motion.button
               key={item.id}
@@ -478,7 +839,7 @@ export default function FloatingHeader() {
               className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
                 active === item.id
                   ? "bg-blue-100 dark:bg-cyan-900 text-blue-800 dark:text-blue-200"
-                : "text-gray-700 dark:text-gray-300"
+                  : "text-gray-700 dark:text-gray-300"
               } hover:bg-blue-100 dark:hover:bg-cyan-900 hover:text-blue-700 dark:hover:text-blue-200`}
             >
               {item.icon}

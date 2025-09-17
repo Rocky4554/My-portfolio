@@ -753,14 +753,14 @@ const Hero = () => {
 
           <AnimatedTitle />
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             className="mb-1 "
           >
             <MorphingText texts={["Frontend Developer", "Problem Solver"]} />
-          </motion.p>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 50 }}
