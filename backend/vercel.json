@@ -1,18 +1,23 @@
 {
-  "functions": {
-    "backend/src/api/index.js": {
-      "runtime": "@vercel/node"
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/**/*",
+      "use": "@vercel/static"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/src/api/index.js"
+      "dest": "src/api/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/backend/dist/$1"
+      "dest": "dist/$1"
     }
-  ],
-  "outputDirectory": "backend/dist"
+  ]
 }
