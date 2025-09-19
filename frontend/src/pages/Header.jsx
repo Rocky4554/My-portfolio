@@ -815,7 +815,7 @@ export default function FloatingHeader() {
     top: 0,
     left: 0,
     right: 0,
-    height: "3.5rem",
+    height: "1.5rem",
     background: isDark
       ? "linear-gradient(to bottom, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.6), transparent)"
       : "linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6), transparent)",

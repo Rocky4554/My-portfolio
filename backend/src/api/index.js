@@ -41,13 +41,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use(router);
+// Routes - with /api prefix to handle all API routes
+app.use('/api', router);
 
 // Default route
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
+    
+// // ✅ For Vercel: Export as serverless function
+// export default app;
 
-
-export default app;
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on http://localhost:${PORT}`);
+});

@@ -3671,7 +3671,7 @@ const Projects = () => {
                   key={project.id}
                   onClick={() => setSelected(project.id)}
                   // className="absolute w-4/5 h-full rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
-                  className="absolute w-7/5 aspect-[19/9] rounded-xl overflow-hidden shadow-2xl cursor-pointer group"
+                  className="absolute w-7/5 aspect-[19/9] rounded-lg overflow-hidden shadow-2xl cursor-pointer group outline-2 outline-offset-2 outline-dashed outline-sky-900 dark:outline-white"
                   initial={false}
                   animate={{
                     x,
@@ -3695,7 +3695,7 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out border-white"
                   />
 
                   {/* Overlay for center card */}
@@ -3707,7 +3707,7 @@ const Projects = () => {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
                     >
-                      <div className="text-center text-white">
+                      <div className="text-center text-white text-shadow-lg/100">
                         <h4 className="text-sm sm:text-base font-semibold">
                           {project.title}
                         </h4>
@@ -3760,7 +3760,7 @@ const Projects = () => {
           onMouseLeave={() => setIsHovered(false)}
         >
           {selectedProject && (
-            <CardSpotlight className="bg-white dark:bg-white/10 rounded-2xl shadow-2xl border border-gray-300 dark:border-white/20 text-black dark:text-white">
+            <CardSpotlight className="bg-white dark:bg-white/10 rounded-2xl shadow-2xl border border-gray-300 dark:border-white/20 text-black dark:text-white cursor-pointer">
               <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
               <motion.div
                 key={selectedProject.id}
@@ -3772,15 +3772,15 @@ const Projects = () => {
                 //            text-black dark:text-white max-h-[350px] sm:max-h-[400px] lg:max-h-[450px] overflow-hidden"
               >
                 {/* Project Icon and Title - Centered */}
-                <div className="flex items-center justify-center text-center mb-3 relative z-30">
-                  <div className="p-2 bg-gray-200 dark:bg-white/20 rounded-lg mr-3">
+                <div className="flex items-center justify-center mb-3 relative z-30">
+                  <div className="p-2 bg-gray-200 dark:bg-white/20 rounded-lg mr-3 text-3xl">
                     {selectedProject.icon}
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold">
                       {selectedProject.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-white/80">
+                    <p className="text-md sm:text-sm text-gray-600 dark:text-white/80 underline hover:decoration-pink-500">
                       {selectedProject.subtitle}
                     </p>
                   </div>
@@ -3820,7 +3820,7 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons - Centered */}
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center relative z-30">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-10 justify-center relative z-30">
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -3828,12 +3828,11 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 px-4 py-2 
-                             bg-gray-700/80 hover:bg-gray-600 
-                             rounded-lg shadow-lg 
-                             text-white text-xs sm:text-sm font-medium transition-colors backdrop-blur-sm"
+                             bg-pink-600/70 hover:bg-pink-500
+                             rounded-lg shadow-lg text-xs sm:text-sm font-medium transition-colors backdrop-blur-sm"
                   >
-                    <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
-                    Live Demo
+                    <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" stroke="white"/>
+                    <span className="text-white shadow">Live Demo</span>
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.05 }}
@@ -3842,12 +3841,12 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 px-4 py-2 
-                             bg-gray-700/80 hover:bg-gray-600 
+                             bg-pink-600/70 hover:bg-pink-500 
                              rounded-lg shadow-lg 
-                             text-white text-xs sm:text-sm font-medium transition-colors backdrop-blur-sm"
+                            text-xs sm:text-sm font-medium transition-colors backdrop-blur-sm"
                   >
-                    <Github className="h-3 w-3 sm:h-4 sm:w-4" />
-                    GitHub
+                    <Github className="h-3 w-3 sm:h-4 sm:w-4" stroke="white"/>
+                    <span className="text-white shadow">Github</span>
                   </motion.a>
                 </div>
               </motion.div>

@@ -635,6 +635,7 @@ import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { InteractiveHoverButton } from "../components/magicui/interactive-hover-button";
 import { RainbowButton } from "../components/ui/rainbow-button";
 import { MorphingText } from "@/components/ui/morphing-text";
+import { Github, Linkedin} from 'lucide-react';
 
 import SplitText from "../components/SplitText";
 
@@ -865,6 +866,32 @@ const Hero = () => {
             >
               <span>View Resume</span>
             </InteractiveHoverButton>
+
+            <div className="flex space-x-4 mt-2">
+              <motion.a
+                href="https://github.com/Rocky4554"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-3 bg-gray-800/50 hover:bg-blue-600/50 rounded-xl transition-all duration-300 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50"
+                aria-label="GitHub"
+              >
+                <Github className="h-5 w-5 text-white" />
+              </motion.a>
+
+              <motion.a
+                href="https://www.linkedin.com/in/raunak-kumar54/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-3 bg-gray-800/50 hover:bg-blue-600/50 rounded-xl transition-all duration-300 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5 text-white" />
+              </motion.a>
+            </div>
 
             {/* <motion.button
               whileHover={{ scale: 1.05, y: -2 }}

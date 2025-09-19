@@ -200,13 +200,13 @@ const Footer = () => {
     className="flex flex-col items-center text-center space-y-4"
   >
     {/* Name */}
-    <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+    <h3 className="text-4xl font-bold bg-gradient-to-r from-amber-300 to-orange-500 bg-clip-text text-transparent">
       Raunak Kumar
     </h3>
 
     {/* Subtitle (centered with icon) */}
     <div className="flex items-center gap-2 justify-center text-gray-300">
-      <Code className="h-4 w-4 text-gray-400" />
+      {/* <Code className="h-4 w-4 text-gray-400" /> */}
       <span className="text-base font-medium">Frontend Developer</span>
     </div>
 
